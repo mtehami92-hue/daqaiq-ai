@@ -324,6 +324,7 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
             <span class="go">ماذا ستجد فيها؟</span></span>
         </button>
       </div>
+      <div class="vidbox hide" id="homeTour" style="margin-top:30px"></div>
       <div class="bagmore" id="m2"><b style="font-family:var(--ui)">حقيبة التمكّن</b><p style="margin:6px 0 12px">تُفتح بعد اكتمال إعدادها. شرط الالتحاق: اجتياز حقيبة الانطلاق، وحساب مدفوع في نموذج واحد على الأقل يتيح رفع الملفات وتوليد الصور وإخراجًا طويلًا. يكفي إقرارك بذلك.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a></div>
       <div class="bagmore" id="m3"><b style="font-family:var(--ui)">حقيبة القمة</b><p style="margin:6px 0 12px">للمعلم الذي يريد قيادة التحول في مدرسته: تصميم مسارات كاملة، وبناء مساعدين مخصصين، ووضع معايير الجودة والأمان، وتدريب زملائه وقياس الأثر. المحتوى قيد التصميم.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a> <a class="btn alt" data-inst target="_blank" rel="noopener" style="text-decoration:none">للمدارس والمؤسسات</a></div>
     </div>
@@ -614,7 +615,7 @@ const CONFIG = {
   trainerRole: 'معلم علوم وباحث في تطبيقات الذكاء الاصطناعي، يدرّب على إنتاج الوسائل التعليمية بطريقة مبتكرة وبسيطة ومواكبة.',
   // Per-task video: a file shipped with the page (e.g. 'videos/info.mp4') plays inline; a web link opens outside.
   videos: { info:'', slides:'', quiz:'', game:'', video:'' },
-  tour: '',            // e.g. 'videos/tour.mp4' — platform tour shown under the journey
+  tour: 'videos/tour.mp4', tourPoster: 'videos/tour.jpg',            // e.g. 'videos/tour.mp4' — platform tour shown under the journey
   showcase: [
     {title:'البرمائيات تشرح نفسها', desc:'مقطع قصير مولّد بالذكاء الاصطناعي: الضفدع يعرّف الطلاب بخصائص البرمائيات.', src:'videos/amphibians.mp4', poster:'videos/amphibians.jpg', task:'video'},
     {title:'البرمائيات تشرح نفسها: في الفصل', desc:'الضفدع معلّمًا أمام السبورة، بصيغة المتكلم.', src:'videos/amphibians-2.mp4', poster:'videos/amphibians-2.jpg', task:'video'},
@@ -904,7 +905,9 @@ function showTask(k){tabs.querySelectorAll('button').forEach(b=>b.setAttribute('
 $('taskBox').addEventListener('click',e=>{const b=e.target.closest('[data-use]');if(!b)return;S.mode=b.dataset.use;document.querySelectorAll('#mode button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.m===S.mode)));render();location.hash='challenge';toast('جهّزنا الأمر. أكمل بيانات درسك ثم انسخه.')});
 showTask('info');
 $('trainerRole').textContent=CONFIG.trainerRole;
-if(isFile(CONFIG.tour)){$('tourBox').innerHTML=`<video controls playsinline preload="metadata" src="${CONFIG.tour}"></video>`;$('tourBox').classList.remove('hide')}
+if(isFile(CONFIG.tour)){const tv=`<video controls playsinline preload="none" poster="${CONFIG.tourPoster||''}" src="${CONFIG.tour}"></video>`;
+  $('tourBox').innerHTML=tv;$('tourBox').classList.remove('hide');
+  $('homeTour').innerHTML=`<h3 style="font-family:var(--ui);font-size:18px;margin:0 0 10px">جولة في المنصة خلال دقيقتين</h3>`+tv;$('homeTour').classList.remove('hide')}
 if(CONFIG.showcase.length){
   $('showGrid').innerHTML=CONFIG.showcase.map(x=>`<figure><video controls playsinline preload="none" ${x.poster?`poster="${x.poster}"`:''} src="${x.src}"></video><figcaption><b>${x.title}</b><span>${x.desc||''}</span>${x.task?`<p style="margin:8px 0 0"><button class="btn alt" type="button" data-use="${x.task}">اصنع مثله لدرسك</button></p>`:''}</figcaption></figure>`).join('');
   $('showcase').classList.remove('hide');$('navShow').classList.remove('hide');
