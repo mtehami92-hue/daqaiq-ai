@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mtehami92-hue.github.io/nahj-ai/sitemap.xml

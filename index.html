@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نهج AI — من صفحة كتابك إلى درس تفاعلي</title>
+<meta name="description" content="نهج AI: حقائب تدريبية مجانية تعلّم المعلم إنتاج الإنفوغراف والعرض والكويز واللعبة والمقطع لدرسه بنماذج الذكاء الاصطناعي المجانية، ومراجعتها قبل استخدامها. إعداد وتدريب أ. محمد التهامي.">
+<meta name="author" content="محمد التهامي">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="نهج AI — من صفحة كتابك إلى درس تفاعلي">
+<meta property="og:description" content="حقائب تدريبية مجانية للمعلمين لإنتاج وسائلهم التعليمية بنماذج الذكاء الاصطناعي المجانية.">
+<meta name="theme-color" content="#16233A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16233A; --ink-2:#3A4A63; --ink-3:#6B7A90;
+  --paper:#F6F8F7; --sheet:#FFFFFF; --line:#D5DDE0; --rule:#E7ECEE;
+  --mark:#F7DC4A; --mark-soft:#FBEFA6;
+  --red:#C2412D; --green:#1F7A5C; --green-soft:#DCEFE6;
+  --ui:'Readex Pro',system-ui,sans-serif; --read:'Noto Naskh Arabic','Readex Pro',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--read);font-size:18px;line-height:1.9}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.narrow{max-width:720px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(246,248,247,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{font-family:var(--ui);font-weight:700;font-size:22px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.brand svg{width:34px;height:34px;flex:none}
+.brand i{font-style:normal;background:var(--mark);padding:0 6px;border-radius:3px}
+.who{margin-inline-start:auto;display:flex;align-items:center;gap:10px;font-family:var(--ui);white-space:nowrap;text-decoration:none}
+.who .av{width:34px;height:34px;border-radius:50%;flex:none}
+.who b{display:block;font-size:15px;line-height:1.2}
+.who small{display:block;font-size:12px;color:var(--ink-3);line-height:1.2}
+.trainer{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);max-width:460px}
+.trainer .av{width:58px;height:58px;border-radius:50%;flex:none}
+.trainer b{font-family:var(--ui);font-size:18px;display:block;line-height:1.4}
+.trainer span{font-size:15px;color:var(--ink-2);line-height:1.6;display:block}
+.h2i{display:flex;align-items:center;gap:14px}
+.h2i .ic{width:46px;height:46px;border-radius:12px;background:var(--mark-soft);display:grid;place-items:center;flex:none}
+.h2i .ic svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.h2i .ic.red{background:#F6DED9}.h2i .ic.red svg{stroke:var(--red)}
+.h2i .ic.grn{background:var(--green-soft)}.h2i .ic.grn svg{stroke:var(--green)}
+video{width:100%;border-radius:10px;background:#000;display:block}
+.vidbox{margin-top:16px}
+.show{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.show figure{margin:0;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px}
+.show figcaption{font-family:var(--ui);padding:10px 4px 2px}
+.show figcaption b{display:block;font-size:17px}
+.show figcaption span{font-size:14px;color:var(--ink-2)}
+.subjnote{font-size:14px;line-height:1.75;color:var(--ink-2);background:var(--paper);border-radius:8px;padding:10px 12px;margin:-4px 0 16px}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;font-family:var(--ui);font-size:15px}
+.nav::-webkit-scrollbar{display:none}
+.nav a{text-decoration:none;padding:6px 10px;border-radius:6px;white-space:nowrap;color:var(--ink-2)}
+.nav a:hover{background:var(--rule);color:var(--ink)}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--ui);font-weight:700;font-size:clamp(34px,5.4vw,58px);line-height:1.25;margin:0 0 18px;letter-spacing:-.5px}
+.hero p.lead{font-size:20px;color:var(--ink-2);margin:0 0 28px;max-width:34ch}
+.cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-weight:600;font-size:17px;background:var(--ink);color:#fff;text-decoration:none;border:0;padding:14px 22px;border-radius:10px;cursor:pointer}
+.cta:hover{background:#0E1828}
+.cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hero .meta{margin-top:22px;font-family:var(--ui);font-size:14px;color:var(--ink-3)}
+
+/* the book page */
+.page{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:4px 14px 14px 4px;padding:30px 32px 26px;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(22,35,58,.35);border-radius:14px 4px 4px 14px}
+.page:before{content:"";position:absolute;inset:0 -1px 0 auto;width:12px;border-radius:0 4px 4px 0;background:linear-gradient(to right,rgba(22,35,58,.09),transparent)}
+.page .pno{position:absolute;top:12px;left:18px;font-family:var(--ui);font-size:12px;color:var(--ink-3)}
+.page h3{font-family:var(--ui);font-size:21px;margin:0 0 6px}
+.page .ln{font-size:16px;line-height:40px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.hl{background-image:linear-gradient(var(--mark),var(--mark));background-repeat:no-repeat;background-size:0% 62%;background-position:right 72%;animation:swipe .7s ease-out forwards;padding:0 2px}
+.hl.d2{animation-delay:.8s}.hl.d3{animation-delay:1.5s}
+@keyframes swipe{to{background-size:100% 62%}}
+.outs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.outs span{font-family:var(--ui);font-size:14px;border:1.5px dashed var(--ink-3);border-radius:999px;padding:4px 12px;opacity:0;transform:translateY(6px);animation:pop .4s ease-out forwards}
+.outs span:nth-child(1){animation-delay:2.3s}.outs span:nth-child(2){animation-delay:2.45s}.outs span:nth-child(3){animation-delay:2.6s}.outs span:nth-child(4){animation-delay:2.75s}.outs span:nth-child(5){animation-delay:2.9s}
+@keyframes pop{to{opacity:1;transform:none;border-style:solid;border-color:var(--ink)}}
+@media (prefers-reduced-motion:reduce){.hl{background-size:100% 62%}.outs span{opacity:1;transform:none}}
+
+/* sections */
+section.blk{scroll-margin-top:64px;padding:64px 0;border-top:1px solid var(--line)}
+section.blk h2{font-family:var(--ui);font-weight:700;font-size:clamp(26px,3.4vw,36px);line-height:1.35;margin:0 0 10px}
+section.blk .sub{color:var(--ink-2);margin:0 0 30px;max-width:62ch}
+h3{font-family:var(--ui);font-weight:600}
+
+/* journey: a real sequence */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:12px;background:var(--sheet);overflow:hidden}
+.steps li{counter-increment:s;padding:20px 18px;border-inline-start:1px solid var(--line)}
+.steps li:first-child{border-inline-start:0}
+.steps li:before{content:counter(s);display:block;font-family:var(--ui);font-weight:700;font-size:30px;line-height:1;margin-bottom:10px;color:var(--ink)}
+.steps b{display:block;font-family:var(--ui);font-weight:600;font-size:17px;margin-bottom:4px}
+.steps span{font-size:15px;line-height:1.75;color:var(--ink-2)}
+
+/* models */
+.models{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.models a{font-family:var(--ui);font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--sheet);padding:8px 14px;border-radius:8px}
+.models a:hover{border-color:var(--ink)}
+.note{font-size:15px;color:var(--ink-3)}
+
+/* builder */
+.builder{display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:22px}
+label.f{display:block;font-family:var(--ui);font-size:14px;font-weight:500;margin:0 0 6px;color:var(--ink-2)}
+input[type=text],input[type=number],select,textarea{width:100%;font:inherit;font-family:var(--ui);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:16px}
+textarea{font-family:var(--read);line-height:1.8}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px var(--mark-soft)}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.seg button{font-family:var(--ui);font-size:14px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 11px;cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prompt-out{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:12px}
+.prompt-out .head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--ui);font-size:14px;color:var(--ink-2);flex-wrap:wrap}
+.prompt-out pre{margin:0;padding:18px 20px;white-space:pre-wrap;word-break:break-word;font-family:var(--read);font-size:15.5px;line-height:1.85;max-height:520px;overflow:auto}
+.btn{font-family:var(--ui);font-size:14px;font-weight:600;border:1.5px solid var(--ink);background:var(--ink);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+.btn.alt{background:#fff;color:var(--ink)}
+.btn.ok{background:var(--green);border-color:var(--green)}
+.cmds{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.cmd{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.cmd b{font-family:var(--ui);font-size:18px;display:block}
+.cmd span{font-size:14px;color:var(--ink-2);line-height:1.7}
+.rec{display:inline-block;font-family:var(--ui);font-size:12px;background:var(--mark-soft);border-radius:4px;padding:1px 7px;margin-inline-start:6px;color:var(--ink)}
+
+/* timer strip */
+.timer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-family:var(--ui)}
+.timer .t{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;min-width:90px}
+
+/* task tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{font-family:var(--ui);font-size:15px;border:1px solid var(--line);background:var(--sheet);border-radius:999px;padding:8px 16px;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected=true]{background:var(--mark);border-color:var(--ink)}
+.task{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:26px}
+.task h3{font-size:24px;margin:0 0 6px}
+.task ol{padding-inline-start:22px;margin:10px 0}
+.task ol li{margin-bottom:6px}
+.route{border-collapse:collapse;width:100%;font-family:var(--ui);font-size:15px}
+.route th,.route td{text-align:start;padding:9px 6px;border-bottom:1px solid var(--rule);vertical-align:top}
+.route th{color:var(--ink-3);font-weight:500;width:38%}
+.route a{font-weight:600}
+.limit{font-size:14px;color:var(--ink-3);margin-top:10px;line-height:1.7}
+.vid{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border:1px dashed var(--ink-3);border-radius:10px;font-family:var(--ui);font-size:14px;text-decoration:none}
+.vid svg{flex:none}
+
+/* rubric */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.rub{width:100%;border-collapse:collapse;font-family:var(--ui);font-size:15px;background:var(--sheet);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rub th,.rub td{padding:10px 12px;border-bottom:1px solid var(--rule);text-align:start}
+.rub thead th{background:var(--rule);font-weight:600}
+.rub input[type=range]{width:100%;accent-color:var(--ink)}
+.score{font-family:var(--ui);font-size:40px;font-weight:700}
+.chk{list-style:none;padding:0;margin:0}
+.chk li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.chk input{margin-top:9px;width:18px;height:18px;accent-color:var(--green);flex:none}
+
+/* errors library */
+.errs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.err{background:var(--sheet);border:1px solid var(--line);border-inline-start:4px solid var(--red);border-radius:10px;padding:16px 18px}
+.err b{font-family:var(--ui);font-size:17px;display:block;margin-bottom:4px}
+.err p{margin:0 0 8px;font-size:15.5px;color:var(--ink-2);line-height:1.8}
+.err code{display:block;font-family:var(--read);font-size:15px;background:var(--paper);border-radius:6px;padding:8px 10px;line-height:1.8}
+
+/* progress & badge */
+.prog{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.outs-list{list-style:none;padding:0;margin:0}
+.outs-list li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule);font-family:var(--ui)}
+.outs-list input{width:22px;height:22px;accent-color:var(--green)}
+.meter{height:10px;background:var(--rule);border-radius:99px;overflow:hidden;margin:14px 0 6px}
+.meter i{display:block;height:100%;width:0;background:var(--green);transition:width .4s}
+canvas#badge{width:100%;max-width:520px;height:auto;border-radius:12px;border:1px solid var(--line);background:#fff;display:block}
+.can{margin:56px 0 0;background:var(--ink);color:#fff;border-radius:16px;padding:34px 30px;display:none}
+.can.show{display:block}
+.can h3{font-size:clamp(28px,4vw,40px);margin:0 0 8px;color:#fff}
+.can h3 i{font-style:normal;background:var(--mark);color:var(--ink);padding:0 8px;border-radius:4px}
+.can p{color:#D7DEE8;margin:0}
+
+/* next stage */
+.next{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{margin:0 0 6px;font-size:21px}
+details{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:2px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-family:var(--ui);font-weight:600;padding:12px 0;font-size:16px}
+details p{margin:0 0 14px;color:var(--ink-2)}
+footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui);font-size:14px;color:var(--ink-3)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-family:var(--ui);font-size:15px;padding:10px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.hide{display:none!important}
+
+/* ===== Home: bags portal ===== */
+.view.hide{display:none}
+.home-head{padding:46px 0 10px;text-align:center}
+.home-head h1{font-family:var(--ui);font-weight:700;font-size:clamp(30px,4.6vw,48px);line-height:1.3;margin:0 0 10px}
+.home-head p{color:var(--ink-2);margin:0 auto;max-width:56ch}
+#home .wrap{max-width:1340px}
+.portal{display:grid;grid-template-columns:230px 1fr 230px;gap:28px;align-items:start;padding:34px 0 70px}
+.side{display:flex;flex-direction:column;gap:16px;font-size:15.5px;line-height:1.8}
+.side .box{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.side h3{font-size:16px;margin:0 0 8px}
+.side ul{margin:0;padding-inline-start:18px}
+.side li{margin-bottom:4px}
+.side .tr{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+.side .tr svg{width:52px;height:52px;flex:none}
+.side .tr b{font-family:var(--ui);display:block;font-size:16px}
+.side small{color:var(--ink-3);font-size:13px}
+.bags{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:end}
+.bag{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;padding-top:34px;cursor:pointer;background:none;border:0;font:inherit;text-align:start}
+.bag .handle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:42%;height:46px;border:9px solid var(--bc);border-bottom:0;border-radius:22px 22px 0 0}
+.bag .body{position:relative;background:var(--bc);color:var(--bt);border-radius:16px;padding:30px 20px 22px;min-height:300px;box-shadow:0 2px 0 rgba(0,0,0,.08),0 22px 34px -22px rgba(22,35,58,.55)}
+.bag .body:before{content:"";position:absolute;inset:9px;border:1.5px dashed var(--bs);border-radius:11px;pointer-events:none}
+.bag .flap{position:absolute;top:0;left:0;right:0;height:62px;border-radius:16px 16px 26px 26px;background:var(--bf)}
+.bag .clasp{position:absolute;top:46px;left:50%;transform:translateX(-50%);width:38px;height:28px;border-radius:7px;background:var(--bk);display:grid;place-items:center;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.bag .clasp svg{width:16px;height:16px;fill:none;stroke:var(--bc);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.bag h2{position:relative;font-family:var(--ui);font-size:23px;margin:46px 0 4px;line-height:1.3}
+.bag .tag{position:relative;display:inline-block;font-family:var(--ui);font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bk);color:var(--bc);margin-bottom:10px}
+.bag p{position:relative;margin:0 0 10px;font-size:15px;line-height:1.75}
+.bag ul{position:relative;margin:0;padding-inline-start:18px;font-size:14.5px;line-height:1.75}
+.bag .go{position:relative;margin-top:16px;font-family:var(--ui);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center;background:var(--bk);color:var(--bc);padding:9px 16px;border-radius:9px;align-self:flex-start}
+.bag:hover .body{transform:translateY(-3px)}.bag .body{transition:transform .2s}
+.b1{--bc:#F7DC4A;--bt:#16233A;--bf:#EFCF2E;--bs:rgba(22,35,58,.35);--bk:#16233A}
+.b2{--bc:#2F62D0;--bt:#FFFFFF;--bf:#2856BA;--bs:rgba(255,255,255,.45);--bk:#FFFFFF}
+.b3{--bc:#16233A;--bt:#FFFFFF;--bf:#0F1A2C;--bs:rgba(247,220,74,.5);--bk:#F7DC4A}
+.b2 .go,.b3 .go{color:var(--bc)}
+.locked .body:after{content:"";position:absolute;inset:0;border-radius:16px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.05) 14px 28px);pointer-events:none}
+.bagmore{margin-top:22px;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:16px 20px;display:none}
+.bagmore.on{display:block}
+.crumb{font-family:var(--ui);font-size:14px;padding:14px 0 0;color:var(--ink-3)}
+.crumb a{color:var(--ink);font-weight:600}
+@media (max-width:1180px){.portal{grid-template-columns:1fr 1fr}.portal .center{grid-column:1/-1}}
+@media (max-width:700px){.portal{grid-template-columns:1fr}.portal .center{order:-1}.bags{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+@media (min-width:701px) and (max-width:1180px){.bags{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.who{display:none}}
+@media (max-width:900px){
+  .show{grid-template-columns:1fr}
+  .hero .wrap,.builder,.task,.two,.prog,.next,.errs{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li{border-inline-start:0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;column-gap:8px}
+  .steps li:first-child{border-top:0}
+  .steps li:before{grid-row:span 2;margin:0}
+  .cmds{grid-template-columns:1fr 1fr}
+  .hero{padding-top:34px}
+  body{font-size:17px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="logo" viewBox="0 0 100 100"><clipPath id="lgc"><circle cx="50" cy="50" r="50"/></clipPath><g clip-path="url(#lgc)"><path d="M100.00 50.00A50 50 0 0 1 98.68 61.41L85.05 58.21A36 36 0 0 0 86.00 50.00Z" fill="#16233A"/><path d="M98.73 61.21A50 50 0 0 1 97.49 65.64L84.19 61.26A36 36 0 0 0 85.08 58.07Z" fill="#2F62D0"/><path d="M97.55 65.45A50 50 0 0 1 92.77 75.89L80.80 68.64A36 36 0 0 0 84.24 61.12Z" fill="#FFFFFF"/><path d="M92.88 75.72A50 50 0 0 1 90.33 79.55L79.04 71.28A36 36 0 0 0 80.87 68.52Z" fill="#F7DC4A"/><path d="M90.45 79.39A50 50 0 0 1 82.68 87.84L73.53 77.25A36 36 0 0 0 79.12 71.16Z" fill="#16233A"/><path d="M82.83 87.71A50 50 0 0 1 79.23 90.57L71.04 79.21A36 36 0 0 0 73.64 77.15Z" fill="#2F62D0"/><path d="M79.39 90.45A50 50 0 0 1 69.38 96.09L63.96 83.18A36 36 0 0 0 71.16 79.12Z" fill="#FFFFFF"/><path d="M69.57 96.01A50 50 0 0 1 65.26 97.61L60.99 84.28A36 36 0 0 0 64.09 83.13Z" fill="#F7DC4A"/><path d="M65.45 97.55A50 50 0 0 1 54.19 99.82L53.02 85.87A36 36 0 0 0 61.12 84.24Z" fill="#16233A"/><path d="M54.39 99.81A50 50 0 0 1 49.80 100.00L49.86 86.00A36 36 0 0 0 53.16 85.86Z" fill="#2F62D0"/><path d="M50.00 100.00A50 50 0 0 1 38.59 98.68L41.79 85.05A36 36 0 0 0 50.00 86.00Z" fill="#FFFFFF"/><path d="M38.79 98.73A50 50 0 0 1 34.36 97.49L38.74 84.19A36 36 0 0 0 41.93 85.08Z" fill="#F7DC4A"/><path d="M34.55 97.55A50 50 0 0 1 24.11 92.77L31.36 80.80A36 36 0 0 0 38.88 84.24Z" fill="#16233A"/><path d="M24.28 92.88A50 50 0 0 1 20.45 90.33L28.72 79.04A36 36 0 0 0 31.48 80.87Z" fill="#2F62D0"/><path d="M20.61 90.45A50 50 0 0 1 12.16 82.68L22.75 73.53A36 36 0 0 0 28.84 79.12Z" fill="#FFFFFF"/><path d="M12.29 82.83A50 50 0 0 1 9.43 79.23L20.79 71.04A36 36 0 0 0 22.85 73.64Z" fill="#F7DC4A"/><path d="M9.55 79.39A50 50 0 0 1 3.91 69.38L16.82 63.96A36 36 0 0 0 20.88 71.16Z" fill="#16233A"/><path d="M3.99 69.57A50 50 0 0 1 2.39 65.26L15.72 60.99A36 36 0 0 0 16.87 64.09Z" fill="#2F62D0"/><path d="M2.45 65.45A50 50 0 0 1 0.18 54.19L14.13 53.02A36 36 0 0 0 15.76 61.12Z" fill="#FFFFFF"/><path d="M0.19 54.39A50 50 0 0 1 0.00 49.80L14.00 49.86A36 36 0 0 0 14.14 53.16Z" fill="#F7DC4A"/><path d="M0.00 50.00A50 50 0 0 1 1.32 38.59L14.95 41.79A36 36 0 0 0 14.00 50.00Z" fill="#16233A"/><path d="M1.27 38.79A50 50 0 0 1 2.51 34.36L15.81 38.74A36 36 0 0 0 14.92 41.93Z" fill="#2F62D0"/><path d="M2.45 34.55A50 50 0 0 1 7.23 24.11L19.20 31.36A36 36 0 0 0 15.76 38.88Z" fill="#FFFFFF"/><path d="M7.12 24.28A50 50 0 0 1 9.67 20.45L20.96 28.72A36 36 0 0 0 19.13 31.48Z" fill="#F7DC4A"/><path d="M9.55 20.61A50 50 0 0 1 17.32 12.16L26.47 22.75A36 36 0 0 0 20.88 28.84Z" fill="#16233A"/><path d="M17.17 12.29A50 50 0 0 1 20.77 9.43L28.96 20.79A36 36 0 0 0 26.36 22.85Z" fill="#2F62D0"/><path d="M20.61 9.55A50 50 0 0 1 30.62 3.91L36.04 16.82A36 36 0 0 0 28.84 20.88Z" fill="#FFFFFF"/><path d="M30.43 3.99A50 50 0 0 1 34.74 2.39L39.01 15.72A36 36 0 0 0 35.91 16.87Z" fill="#F7DC4A"/><path d="M34.55 2.45A50 50 0 0 1 45.81 0.18L46.98 14.13A36 36 0 0 0 38.88 15.76Z" fill="#16233A"/><path d="M45.61 0.19A50 50 0 0 1 50.20 0.00L50.14 14.00A36 36 0 0 0 46.84 14.14Z" fill="#2F62D0"/><path d="M50.00 0.00A50 50 0 0 1 61.41 1.32L58.21 14.95A36 36 0 0 0 50.00 14.00Z" fill="#FFFFFF"/><path d="M61.21 1.27A50 50 0 0 1 65.64 2.51L61.26 15.81A36 36 0 0 0 58.07 14.92Z" fill="#F7DC4A"/><path d="M65.45 2.45A50 50 0 0 1 75.89 7.23L68.64 19.20A36 36 0 0 0 61.12 15.76Z" fill="#16233A"/><path d="M75.72 7.12A50 50 0 0 1 79.55 9.67L71.28 20.96A36 36 0 0 0 68.52 19.13Z" fill="#2F62D0"/><path d="M79.39 9.55A50 50 0 0 1 87.84 17.32L77.25 26.47A36 36 0 0 0 71.16 20.88Z" fill="#FFFFFF"/><path d="M87.71 17.17A50 50 0 0 1 90.57 20.77L79.21 28.96A36 36 0 0 0 77.15 26.36Z" fill="#F7DC4A"/><path d="M90.45 20.61A50 50 0 0 1 96.09 30.62L83.18 36.04A36 36 0 0 0 79.12 28.84Z" fill="#16233A"/><path d="M96.01 30.43A50 50 0 0 1 97.61 34.74L84.28 39.01A36 36 0 0 0 83.13 35.91Z" fill="#2F62D0"/><path d="M97.55 34.55A50 50 0 0 1 99.82 45.81L85.87 46.98A36 36 0 0 0 84.24 38.88Z" fill="#FFFFFF"/><path d="M99.81 45.61A50 50 0 0 1 100.00 50.20L86.00 50.14A36 36 0 0 0 85.86 46.84Z" fill="#F7DC4A"/><path d="M83.26 63.78A36 36 0 0 1 81.48 67.47L70.11 61.16A23 23 0 0 0 71.25 58.80Z" fill="#F7DC4A"/><path d="M81.55 67.34A36 36 0 0 1 75.35 75.56L66.20 66.33A23 23 0 0 0 70.16 61.08Z" fill="#FFFFFF"/><path d="M75.46 75.46A36 36 0 0 1 72.40 78.19L64.31 68.01A23 23 0 0 0 66.26 66.26Z" fill="#2F62D0"/><path d="M72.51 78.10A36 36 0 0 1 63.64 83.31L58.72 71.28A23 23 0 0 0 64.38 67.95Z" fill="#16233A"/><path d="M63.78 83.26A36 36 0 0 1 59.91 84.61L56.33 72.11A23 23 0 0 0 58.80 71.25Z" fill="#F7DC4A"/><path d="M60.04 84.57A36 36 0 0 1 49.86 86.00L49.91 73.00A23 23 0 0 0 56.42 72.09Z" fill="#FFFFFF"/><path d="M50.00 86.00A36 36 0 0 1 45.91 85.77L47.38 72.85A23 23 0 0 0 50.00 73.00Z" fill="#2F62D0"/><path d="M46.05 85.78A36 36 0 0 1 36.09 83.20L41.11 71.21A23 23 0 0 0 47.48 72.86Z" fill="#16233A"/><path d="M36.22 83.26A36 36 0 0 1 32.53 81.48L38.84 70.11A23 23 0 0 0 41.20 71.25Z" fill="#F7DC4A"/><path d="M32.66 81.55A36 36 0 0 1 24.44 75.35L33.67 66.20A23 23 0 0 0 38.92 70.16Z" fill="#FFFFFF"/><path d="M24.54 75.46A36 36 0 0 1 21.81 72.40L31.99 64.31A23 23 0 0 0 33.74 66.26Z" fill="#2F62D0"/><path d="M21.90 72.51A36 36 0 0 1 16.69 63.64L28.72 58.72A23 23 0 0 0 32.05 64.38Z" fill="#16233A"/><path d="M16.74 63.78A36 36 0 0 1 15.39 59.91L27.89 56.33A23 23 0 0 0 28.75 58.80Z" fill="#F7DC4A"/><path d="M15.43 60.04A36 36 0 0 1 14.00 49.86L27.00 49.91A23 23 0 0 0 27.91 56.42Z" fill="#FFFFFF"/><path d="M14.00 50.00A36 36 0 0 1 14.23 45.91L27.15 47.38A23 23 0 0 0 27.00 50.00Z" fill="#2F62D0"/><path d="M14.22 46.05A36 36 0 0 1 16.80 36.09L28.79 41.11A23 23 0 0 0 27.14 47.48Z" fill="#16233A"/><path d="M16.74 36.22A36 36 0 0 1 18.52 32.53L29.89 38.84A23 23 0 0 0 28.75 41.20Z" fill="#F7DC4A"/><path d="M18.45 32.66A36 36 0 0 1 24.65 24.44L33.80 33.67A23 23 0 0 0 29.84 38.92Z" fill="#FFFFFF"/><path d="M24.54 24.54A36 36 0 0 1 27.60 21.81L35.69 31.99A23 23 0 0 0 33.74 33.74Z" fill="#2F62D0"/><path d="M27.49 21.90A36 36 0 0 1 36.36 16.69L41.28 28.72A23 23 0 0 0 35.62 32.05Z" fill="#16233A"/><path d="M36.22 16.74A36 36 0 0 1 40.09 15.39L43.67 27.89A23 23 0 0 0 41.20 28.75Z" fill="#F7DC4A"/><path d="M39.96 15.43A36 36 0 0 1 50.14 14.00L50.09 27.00A23 23 0 0 0 43.58 27.91Z" fill="#FFFFFF"/><path d="M50.00 14.00A36 36 0 0 1 54.09 14.23L52.62 27.15A23 23 0 0 0 50.00 27.00Z" fill="#2F62D0"/><path d="M53.95 14.22A36 36 0 0 1 63.91 16.80L58.89 28.79A23 23 0 0 0 52.52 27.14Z" fill="#16233A"/><path d="M63.78 16.74A36 36 0 0 1 67.47 18.52L61.16 29.89A23 23 0 0 0 58.80 28.75Z" fill="#F7DC4A"/><path d="M67.34 18.45A36 36 0 0 1 75.56 24.65L66.33 33.80A23 23 0 0 0 61.08 29.84Z" fill="#FFFFFF"/><path d="M75.46 24.54A36 36 0 0 1 78.19 27.60L68.01 35.69A23 23 0 0 0 66.26 33.74Z" fill="#2F62D0"/><path d="M78.10 27.49A36 36 0 0 1 83.31 36.36L71.28 41.28A23 23 0 0 0 67.95 35.62Z" fill="#16233A"/><path d="M83.26 36.22A36 36 0 0 1 84.61 40.09L72.11 43.67A23 23 0 0 0 71.25 41.20Z" fill="#F7DC4A"/><path d="M84.57 39.96A36 36 0 0 1 86.00 50.14L73.00 50.09A23 23 0 0 0 72.09 43.58Z" fill="#FFFFFF"/><path d="M86.00 50.00A36 36 0 0 1 85.77 54.09L72.85 52.62A23 23 0 0 0 73.00 50.00Z" fill="#2F62D0"/><path d="M85.78 53.95A36 36 0 0 1 83.20 63.91L71.21 58.89A23 23 0 0 0 72.86 52.52Z" fill="#16233A"/><path d="M73.00 50.00A23 23 0 0 1 71.35 58.55L60.21 54.09A11 11 0 0 0 61.00 50.00Z" fill="#16233A"/><path d="M71.38 58.47A23 23 0 0 1 69.87 61.58L59.50 55.54A11 11 0 0 0 60.23 54.05Z" fill="#2F62D0"/><path d="M69.92 61.50A23 23 0 0 1 64.21 68.08L56.80 58.65A11 11 0 0 0 59.53 55.50Z" fill="#FFFFFF"/><path d="M64.29 68.02A23 23 0 0 1 61.42 69.96L55.46 59.55A11 11 0 0 0 56.83 58.62Z" fill="#F7DC4A"/><path d="M61.50 69.92A23 23 0 0 1 53.27 72.77L51.56 60.89A11 11 0 0 0 55.50 59.53Z" fill="#16233A"/><path d="M53.36 72.75A23 23 0 0 1 49.91 73.00L49.96 61.00A11 11 0 0 0 51.61 60.88Z" fill="#2F62D0"/><path d="M50.00 73.00A23 23 0 0 1 41.45 71.35L45.91 60.21A11 11 0 0 0 50.00 61.00Z" fill="#FFFFFF"/><path d="M41.53 71.38A23 23 0 0 1 38.42 69.87L44.46 59.50A11 11 0 0 0 45.95 60.23Z" fill="#F7DC4A"/><path d="M38.50 69.92A23 23 0 0 1 31.92 64.21L41.35 56.80A11 11 0 0 0 44.50 59.53Z" fill="#16233A"/><path d="M31.98 64.29A23 23 0 0 1 30.04 61.42L40.45 55.46A11 11 0 0 0 41.38 56.83Z" fill="#2F62D0"/><path d="M30.08 61.50A23 23 0 0 1 27.23 53.27L39.11 51.56A11 11 0 0 0 40.47 55.50Z" fill="#FFFFFF"/><path d="M27.25 53.36A23 23 0 0 1 27.00 49.91L39.00 49.96A11 11 0 0 0 39.12 51.61Z" fill="#F7DC4A"/><path d="M27.00 50.00A23 23 0 0 1 28.65 41.45L39.79 45.91A11 11 0 0 0 39.00 50.00Z" fill="#16233A"/><path d="M28.62 41.53A23 23 0 0 1 30.13 38.42L40.50 44.46A11 11 0 0 0 39.77 45.95Z" fill="#2F62D0"/><path d="M30.08 38.50A23 23 0 0 1 35.79 31.92L43.20 41.35A11 11 0 0 0 40.47 44.50Z" fill="#FFFFFF"/><path d="M35.71 31.98A23 23 0 0 1 38.58 30.04L44.54 40.45A11 11 0 0 0 43.17 41.38Z" fill="#F7DC4A"/><path d="M38.50 30.08A23 23 0 0 1 46.73 27.23L48.44 39.11A11 11 0 0 0 44.50 40.47Z" fill="#16233A"/><path d="M46.64 27.25A23 23 0 0 1 50.09 27.00L50.04 39.00A11 11 0 0 0 48.39 39.12Z" fill="#2F62D0"/><path d="M50.00 27.00A23 23 0 0 1 58.55 28.65L54.09 39.79A11 11 0 0 0 50.00 39.00Z" fill="#FFFFFF"/><path d="M58.47 28.62A23 23 0 0 1 61.58 30.13L55.54 40.50A11 11 0 0 0 54.05 39.77Z" fill="#F7DC4A"/><path d="M61.50 30.08A23 23 0 0 1 68.08 35.79L58.65 43.20A11 11 0 0 0 55.50 40.47Z" fill="#16233A"/><path d="M68.02 35.71A23 23 0 0 1 69.96 38.58L59.55 44.54A11 11 0 0 0 58.62 43.17Z" fill="#2F62D0"/><path d="M69.92 38.50A23 23 0 0 1 72.77 46.73L60.89 48.44A11 11 0 0 0 59.53 44.50Z" fill="#FFFFFF"/><path d="M72.75 46.64A23 23 0 0 1 73.00 50.09L61.00 50.04A11 11 0 0 0 60.88 48.39Z" fill="#F7DC4A"/><circle cx="50" cy="50" r="11" fill="#16233A"/><circle cx="50" cy="50" r="4.2" fill="#F7DC4A"/></g></symbol>
+ <symbol id="i-path" viewBox="0 0 24 24"><path d="M5 19c5 0 4-7 8-7s3-6 7-6"/><circle cx="5" cy="19" r="1.6"/><circle cx="20" cy="6" r="1.6"/></symbol>
+ <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16v4M17 18h4"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M7.8 10.6l2 2 3.6-3.7"/></symbol>
+ <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4.2-1 11-11a2.1 2.1 0 0 0-3-3l-11 11z"/><path d="M14.5 6.5l3 3"/></symbol>
+ <symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5.5"/><path d="M8 3l4 6.5L16 3M12 12.5v5"/></symbol>
+ <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20h5v-4.5h4.5V11H17V6.5h4"/></symbol>
+ <symbol id="i-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/><path d="M6 6l3.5 3.5M14.5 14.5L18 18M18 6l-3.5 3.5M9.5 14.5L6 18"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9v6l5-3z"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="نهج AI — الصفحة الرئيسية"><svg><use href="#logo"/></svg><span>نهج</span><i>AI</i></a>
+    <nav class="nav" id="bagnav" aria-label="أقسام الحقيبة">
+      <a href="#start">ابدأ</a>
+      <a href="#challenge">تحدي البرومبت الواحد</a>
+      <a href="#tasks">المهام الخمس</a>
+      <a href="#showcase" id="navShow" class="hide">شاهد أعمالنا</a>
+      <a href="#master">أنا أتقن</a>
+      <a href="#errors">الأخطاء الشائعة</a>
+      <a href="#progress">إنجازي</a>
+      <a href="#faq">أسئلة</a>
+    </nav>
+    <a class="who" href="#about"><svg class="av"><use href="#logo"/></svg><span><b>أ. محمد التهامي</b><small>المدرّب</small></span></a>
+  </div>
+</header>
+
+<main id="home" class="view">
+<div class="wrap">
+  <div class="home-head">
+    <h1>من صفحة كتابك إلى درس تفاعلي</h1>
+    <p>حقائب تدريبية عملية تعلّم المعلم إنتاج وسائله التعليمية بنماذج الذكاء الاصطناعي المجانية، ومراجعتها قبل أن تصل إلى طلابه.</p>
+  </div>
+  <div class="portal">
+    <aside class="side" aria-label="عن المنصة">
+      <div class="box" id="about">
+        <div class="tr"><svg><use href="#logo"/></svg><span><b>أ. محمد التهامي</b><small>المدرّب</small></span></div>
+        <span id="aboutRole"></span>
+      </div>
+      <div class="box"><h3>عن نهج AI</h3>منصة مجانية تقود المعلم من صور صفحات كتابه إلى حقيبة درس كاملة: إنفوغراف، وعرض، وكويز، ولعبة، ومقطع قصير.</div>
+      <div class="box"><h3>مبادئنا</h3><ul><li>النماذج المجانية فقط في الحقيبة الأولى.</li><li>المراجعة البشرية إلزامية قبل أي استخدام.</li><li>لا بيانات طلاب في أي نموذج خارجي.</li><li>صفحات الكتاب لا تُنشر.</li></ul></div>
+    </aside>
+    <div class="center">
+      <div class="bags">
+        <a class="bag b1" href="#bag-launch" aria-label="افتح حقيبة نهج الانطلاق">
+          <span class="handle"></span>
+          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span>
+            <h2>نهج الانطلاق</h2><span class="tag">مفتوحة · مجانية</span>
+            <p>من الصفر إلى أول حقيبة درس، ببرومبت واحد ونموذج مجاني واحد.</p>
+            <ul><li>تحدي البرومبت الواحد</li><li>المهام الخمس بمساراتها</li><li>المراجعة والأخطاء الشائعة</li><li>شارة الإنجاز</li></ul>
+            <span class="go">افتح الحقيبة</span></span>
+        </a>
+        <button type="button" class="bag b2 locked" data-more="m2" aria-expanded="false">
+          <span class="handle"></span>
+          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+            <h2>نهج التمكّن</h2><span class="tag">قيد الإعداد</span>
+            <p>من المنتج المنفرد إلى أدوات تفاعلية متقدمة.</p>
+            <ul><li>المعامل الافتراضية</li><li>الألعاب التفاعلية المتقدمة</li><li>نماذج تقييم الطلاب وتحليل أدائهم</li></ul>
+            <span class="go">ماذا ستجد فيها؟</span></span>
+        </button>
+        <button type="button" class="bag b3 locked" data-more="m3" aria-expanded="false">
+          <span class="handle"></span>
+          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+            <h2>نهج القمة</h2><span class="tag">قيد الإعداد</span>
+            <p>من الاستخدام الفردي إلى قيادة الممارسة في مدرستك.</p>
+            <ul><li>مسارات تعليمية متكاملة</li><li>مساعدون مخصصون لمادتك</li><li>معايير جودة وأمان، وتدريب الزملاء</li></ul>
+            <span class="go">ماذا ستجد فيها؟</span></span>
+        </button>
+      </div>
+      <div class="bagmore" id="m2"><b style="font-family:var(--ui)">نهج التمكّن</b><p style="margin:6px 0 12px">تُفتح بعد اكتمال إعدادها. شرط الالتحاق: اجتياز نهج الانطلاق، وحساب مدفوع في نموذج واحد على الأقل يتيح رفع الملفات وتوليد الصور وإخراجًا طويلًا. يكفي إقرارك بذلك.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a></div>
+      <div class="bagmore" id="m3"><b style="font-family:var(--ui)">نهج القمة</b><p style="margin:6px 0 12px">للمعلم الذي يريد قيادة التحول في مدرسته: تصميم مسارات كاملة، وبناء مساعدين مخصصين، ووضع معايير الجودة والأمان، وتدريب زملائه وقياس الأثر. المحتوى قيد التصميم.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a> <a class="btn alt" data-inst target="_blank" rel="noopener" style="text-decoration:none">للمدارس والمؤسسات</a></div>
+    </div>
+    <aside class="side" aria-label="روابط">
+      <div class="box"><h3>ابدأ من هنا</h3>افتح حقيبة نهج الانطلاق، واختر مادتك، وانسخ برومبتك الأول. أول وسيلة تأخذ عادة أقل من جلسة واحدة.</div>
+      <div class="box"><h3>النماذج المستخدمة</h3><ul><li><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a></li><li><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></li><li><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></li><li><a href="https://chat.deepseek.com" target="_blank" rel="noopener">DeepSeek</a></li><li><a href="https://grok.com" target="_blank" rel="noopener">Grok</a></li></ul></div>
+      <div class="box"><h3>شروحات الفيديو</h3>شروحات كل مهمة على <a href="https://youtube.com/@-mmss" target="_blank" rel="noopener">قناة المدرب</a>.</div>
+      <div class="box"><h3>آخر التحديثات</h3><small>نوفمبر 2026</small><br>إطلاق تجريبي لحقيبة نهج الانطلاق، مع قوالب خمس مواد.</div>
+    </aside>
+  </div>
+</div>
+</main>
+
+<main id="bag-launch" class="view hide">
+<div class="wrap crumb"><a href="#home">الحقائب</a> ‹ نهج الانطلاق</div>
+<div id="top"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>صوِّر صفحة من كتابك، واخرج بحقيبة درس كاملة.</h1>
+      <p class="lead">حقيبة تدريبية مجانية تعلّمك إنتاج الإنفوغراف والعرض والكويز واللعبة والمقطع لدرسك، بنماذج الذكاء الاصطناعي المجانية، ثم مراجعتها قبل أن تصل إلى طلابك.</p>
+      <a class="cta" href="#challenge">ابدأ تحدي البرومبت الواحد</a>
+      <div class="meta">المرحلة الأولى مجانية، ولا تحتاج اشتراكًا مدفوعًا.</div>
+      <div class="trainer" id="trainer"><svg class="av"><use href="#logo"/></svg><span><b>أ. محمد التهامي</b><span id="trainerRole"></span></span></div>
+    </div>
+    <div class="page" aria-hidden="true">
+      <span class="pno">ص ٤٢</span>
+      <h3>الدرس الثالث: الضغط في الموائع</h3>
+      <div class="ln"><span class="hl">يتناسب ضغط السائل طرديًا مع عمقه</span> وكثافته.</div>
+      <div class="ln">ينتقل الضغط في السائل المحصور بالتساوي</div>
+      <div class="ln">في جميع الاتجاهات، وهذا <span class="hl d2">مبدأ باسكال</span>.</div>
+      <div class="ln">ومن تطبيقاته الرافعة الهيدروليكية</div>
+      <div class="ln">وكوابح السيارات. <span class="hl d3">قوة الطفو</span> تساوي وزن</div>
+      <div class="ln">السائل المزاح.</div>
+      <div class="outs"><span>إنفوغراف</span><span>عرض شرائح</span><span>كويز</span><span>لعبة</span><span>مقطع قصير</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- START -->
+<section class="blk" id="start">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-path"/></svg></span><span>الرحلة كلها في خمس خطوات</span></h2>
+    <p class="sub">لا تحتاج أن تتعلم أربعة نماذج قبل أن تبدأ. نموذج واحد مجاني، وبرومبت واحد، وصور صفحات درسك.</p>
+    <div class="vidbox hide" id="tourBox" style="margin:0 0 26px;max-width:760px"></div>
+    <ol class="steps">
+      <li><b>افتح حسابًا مجانيًا</b><span>في نموذج واحد فقط، بإيميلك. خمس دقائق.</span></li>
+      <li><b>صوّر صفحات الدرس</b><span>صورة واضحة مستقيمة لكل صفحة، من صفحتين إلى أربع.</span></li>
+      <li><b>جهّز برومبتك</b><span>اكتب المادة والصف والعنوان هنا، وانسخ الأمر الجاهز.</span></li>
+      <li><b>نفّذ واطلب «التالي»</b><span>الصق الأمر مع الصور، واستلم الحقيبة جزءًا جزءًا.</span></li>
+      <li><b>راجع وسجّل وقتك</b><span>افحص المخرج بنفسك، ثم سجّل إنجازك واحصل على شارتك.</span></li>
+    </ol>
+    <div class="models" aria-label="روابط النماذج">
+      <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+      <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
+      <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
+      <a href="https://chat.deepseek.com" target="_blank" rel="noopener">DeepSeek</a>
+      <a href="https://grok.com" target="_blank" rel="noopener">Grok</a>
+    </div>
+    <p class="note">التسجيل في النماذج يتم في مواقعها الرسمية بإيميلك. هذه المنصة لا تطلب كلمات مرورك ولا تحفظها.</p>
+  </div>
+</section>
+
+<!-- CHALLENGE / BUILDER -->
+<section class="blk" id="challenge">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-spark"/></svg></span><span>تحدي البرومبت الواحد: أنا أستطيع</span></h2>
+    <p class="sub">اختر مجال مادتك واملأ بيانات الدرس، وانسخ الأمر، والصقه في النموذج مع صور الدرس. سيعطيك النموذج جزءًا في كل رد، وتطلب الجزء الذي يليه بكلمة واحدة.</p>
+    <div class="builder">
+      <div class="panel">
+        <label class="f" for="field">مجال المادة</label>
+        <select id="field"></select>
+        <p class="subjnote" id="subjNote"></p>
+        <label class="f" for="subj">اسم المادة بالتحديد (اختياري)</label>
+        <input type="text" id="subj" placeholder="مثال: الأحياء، النحو، التوحيد">
+        <label class="f" for="grade">الصف والمرحلة</label>
+        <input type="text" id="grade" placeholder="مثال: الثاني المتوسط">
+        <label class="f" for="title">عنوان الدرس</label>
+        <input type="text" id="title" placeholder="مثال: الضغط في الموائع">
+        <label class="f" for="mins">مدة الحصة بالدقائق</label>
+        <input type="number" id="mins" value="45" min="20" max="120">
+        <label class="f" id="modeLbl">ماذا تريد؟</label>
+        <div class="seg" role="group" aria-labelledby="modeLbl" id="mode">
+          <button type="button" data-m="all" aria-pressed="true">الحقيبة كاملة</button>
+          <button type="button" data-m="info" aria-pressed="false">إنفوغراف</button>
+          <button type="button" data-m="slides" aria-pressed="false">عرض</button>
+          <button type="button" data-m="quiz" aria-pressed="false">كويز</button>
+          <button type="button" data-m="game" aria-pressed="false">لعبة</button>
+          <button type="button" data-m="video" aria-pressed="false">مقطع</button>
+        </div>
+        <label class="f" id="verLbl">طول الأمر</label>
+        <div class="seg" role="group" aria-labelledby="verLbl" id="ver">
+          <button type="button" data-v="full" aria-pressed="true">كامل</button>
+          <button type="button" data-v="short" aria-pressed="false">مختصر لتوفير الحصة</button>
+        </div>
+        <p class="note" id="recNote"></p>
+      </div>
+      <div>
+        <div class="prompt-out">
+          <div class="head"><span id="outLbl">الأمر الجاهز</span><span><button class="btn" id="copyMain" type="button">انسخ الأمر</button> <a class="btn alt" id="openRec" href="https://gemini.google.com" target="_blank" rel="noopener" style="text-decoration:none">افتح Gemini</a></span></div>
+          <pre id="promptMain" tabindex="0"></pre>
+        </div>
+        <div class="cmds" aria-label="الأوامر المختصرة">
+          <div class="cmd"><b>تابع</b><span>إذا انقطع الرد في منتصفه.</span></div>
+          <div class="cmd"><b>التالي</b><span>انتقل إلى الجزء الذي يليه.</span></div>
+          <div class="cmd"><b>راجع</b><span>يفحص الجزء الحالي مقابل الكتاب ويصححه.</span></div>
+          <div class="cmd"><b>عدّل: …</b><span>اكتب بعدها ما تريد تغييره.</span></div>
+        </div>
+        <div class="timer" aria-live="polite">
+          <span class="t" id="tclock">00:00</span>
+          <button class="btn" id="tstart" type="button">ابدأ المؤقت عند لصق الأمر</button>
+          <button class="btn ok hide" id="tdone" type="button">أنجزت أول وسيلة</button>
+          <span class="note" id="tnote">نقيس وقتك الحقيقي، لا وقتًا مفترضًا.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="can" id="can" role="status">
+      <h3>انظر… <i>إنك تستطيع</i></h3>
+      <p id="canTxt"></p>
+    </div>
+
+    <details style="margin-top:34px">
+      <summary>نفدت حصة النموذج في منتصف العمل؟ انتقل إلى نموذج آخر دون أن تبدأ من جديد</summary>
+      <p>انسخ من المحادثة الأولى «بطاقة مصدر الدرس» (الجزء 0) وآخر «بطاقة حالة»، والصقهما هنا. سنكوّن لك أمر استئناف تلصقه في نموذج آخر، ولن تحتاج إلى رفع صور الكتاب مرة أخرى.</p>
+      <label class="f" for="srcCard">بطاقة مصدر الدرس</label>
+      <textarea id="srcCard" rows="4" placeholder="الصق هنا الجزء 0 كما أخرجه النموذج"></textarea>
+      <label class="f" for="stateCard">آخر بطاقة حالة</label>
+      <textarea id="stateCard" rows="3" placeholder="---حالة--- …"></textarea>
+      <p><button class="btn" id="copyResume" type="button">انسخ أمر الاستئناف</button></p>
+    </details>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section class="blk" id="tasks">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-grid"/></svg></span><span>المهام الخمس، كلٌّ بمسارها</span></h2>
+    <p class="sub">لكل مهمة نموذج منفّذ مقترح، ونموذج مراجع، وبديل إذا نفدت الحصة. التوصيات مبدئية، وستُحدَّث بعد اختبارها على دروس حقيقية بحسابات مجانية.</p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="taskBox"></div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="blk hide" id="showcase">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-play"/></svg></span><span>شاهد ما يمكن أن تصنعه</span></h2>
+    <p class="sub">أمثلة من إنتاج المدرب بالنماذج المجانية. شاهد المثال، ثم اصنع مثله لدرسك.</p>
+    <div class="show" id="showGrid"></div>
+  </div>
+</section>
+
+<!-- MASTER -->
+<section class="blk" id="master">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-check"/></svg></span><span>أنا أتقن: راجع قبل أن تستخدم</span></h2>
+    <p class="sub">المخرج الجميل قد يحمل خطأً علميًا. المراجعة هنا ثلاث طبقات: مطابقة الكتاب، ونموذج مراجع، ثم عينك أنت. ولا يُعتمد أي مخرج دون مراجعتك.</p>
+    <div class="two">
+      <div>
+        <div class="prompt-out">
+          <div class="head"><span>أمر المراجعة: الصقه في نموذج غير الذي نفّذ</span><button class="btn" id="copyReview" type="button">انسخ</button></div>
+          <pre id="promptReview" tabindex="0"></pre>
+        </div>
+        <div class="prompt-out" style="margin-top:20px">
+          <div class="head"><span>ورشة بناء الطلب: لمهمة غير موجودة هنا</span><button class="btn" id="copyWorkshop" type="button">انسخ</button></div>
+          <pre id="promptWorkshop" tabindex="0"></pre>
+        </div>
+        <p class="note">ابنِ الطلب في DeepSeek، ثم نفّذه في النموذج المختار. هكذا لا تستهلك حصة النموذج الأساسي في صياغة الطلب نفسه.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:0">قيّم مخرجك بنفسك</h3>
+        <table class="rub" id="rub">
+          <thead><tr><th>المعيار</th><th>الوزن</th><th style="width:40%">تقديرك</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p style="display:flex;align-items:baseline;gap:12px;margin:16px 0 4px"><span class="score" id="score">0%</span><span class="note" id="scoreNote"></span></p>
+        <h3>قبل أن تعرضه على طلابك</h3>
+        <ul class="chk" id="human">
+          <li><input type="checkbox" id="h1"><label for="h1">قارنت كل معلومة في المخرج بصفحة الكتاب.</label></li>
+          <li><input type="checkbox" id="h2"><label for="h2">تحققت من مفتاح إجابات الكويز سؤالًا سؤالًا.</label></li>
+          <li><input type="checkbox" id="h3"><label for="h3">جرّبت الملف على هاتف قبل الحصة.</label></li>
+          <li><input type="checkbox" id="h4"><label for="h4">لا يحتوي المخرج أي بيانات شخصية لطلابي.</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ERRORS -->
+<section class="blk" id="errors">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic red"><svg><use href="#i-pen"/></svg></span><span>الأخطاء الشائعة وعلاجها</span></h2>
+    <p class="sub">كل خطأ هنا رأيناه فعلًا في مخرجات النماذج المجانية. انسخ أمر العلاج والصقه في المحادثة نفسها.</p>
+    <div class="errs" id="errs"></div>
+    <details style="margin-top:26px">
+      <summary>متى لا أستخدم الذكاء الاصطناعي؟</summary>
+      <p>حين يكون التعديل اليدوي أسرع من شرح المطلوب للنموذج، وحين تحتاج المهمة بيانات طلابك الشخصية أو درجاتهم، وحين لا تملك وقتًا لمراجعة الناتج. خصوصية الطالب ودقة المحتوى المدرسي تتقدمان على سرعة الإنتاج.</p>
+    </details>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<section class="blk" id="progress">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic grn"><svg><use href="#i-medal"/></svg></span><span>إنجازي</span></h2>
+    <p class="sub">يُحفظ تقدمك في متصفحك على هذا الجهاز فقط. أول وسيلة تفتح لك «شارة انطلاقة»، ووسيلتان مع مراجعتهما تفتحان «شارة المعلم المنطلق».</p>
+    <div class="prog">
+      <div class="panel">
+        <ul class="outs-list" id="outsList"></ul>
+        <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+        <p class="note" id="progNote"></p>
+        <label class="f" for="before">كم دقيقة كانت تستغرق منك هذه الوسيلة يدويًا؟</label>
+        <input type="number" id="before" min="0" placeholder="تقديرك قبل التدريب">
+        <label class="f" for="pname">اسمك كما تريده على الشارة</label>
+        <input type="text" id="pname" placeholder="مثال: أ. سارة العتيبي">
+      </div>
+      <div>
+        <canvas id="badge" width="1040" height="640" aria-label="شارة الإنجاز"></canvas>
+        <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn" id="saveBadge" type="button">احفظ الشارة صورة</button>
+          <a class="btn alt" id="regLink" target="_blank" rel="noopener" style="text-decoration:none">سجّل إنجازك ورقم شارتك</a>
+        </p>
+        <p class="note" id="badgeNote">الشارة شارة إتمام تدريب تطبيقي، وليست شهادة اعتماد مهني. رقمها يُسجَّل في سجل المنصة عند تسجيل إنجازك.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:28px">
+      <h3>سؤال واحد يهمنا: ما الذي أوقفك أو أبطأك؟</h3>
+      <p class="note" style="margin:0 0 12px">إجابتك تحسّن المنصة للمعلم القادم. وإن أعجبتك، شاركها مع زملائك.</p>
+      <a class="btn" id="fbLink" target="_blank" rel="noopener" style="text-decoration:none">أرسل رأيك</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="blk" id="next">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-stairs"/></svg></span><span>بعد المرحلة الأولى</span></h2>
+    <p class="sub">المستوى المتقدم: المعامل الافتراضية، والألعاب التفاعلية المتقدمة، ونماذج تقييم الطلاب وتحليل أدائهم. التسجيل المسبق مفتوح.</p>
+    <div class="next">
+      <div class="card">
+        <h3>للمعلم</h3>
+        <p>الشروط: اجتياز المرحلة الأولى، وحساب مدفوع في نموذج واحد على الأقل، شخصي أو مؤسسي، يتيح رفع الملفات وتوليد الصور وإخراجًا طويلًا دون انقطاع. يكفي إقرارك بذلك.</p>
+        <a class="btn" id="preLink" target="_blank" rel="noopener" style="text-decoration:none">سجّل في قائمة الانتظار</a>
+      </div>
+      <div class="card">
+        <h3>للمدارس والمؤسسات</h3>
+        <p>دورة لمعلمي مؤسستك المشتركين عبرها، وورش تدريب مباشرة، وبرامج تطوير لتبنّي الذكاء الاصطناعي في الإنتاج التعليمي.</p>
+        <a class="btn alt" id="instLink" target="_blank" rel="noopener" style="text-decoration:none">اطلب تدريبًا لمؤسستك</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="blk" id="faq">
+  <div class="wrap narrow">
+    <h2 class="h2i"><span class="ic "><svg><use href="#i-buoy"/></svg></span><span>حين لا تسير الأمور كما ينبغي</span></h2>
+    <details><summary>رفعت الصورة ولم يقرأها النموذج جيدًا</summary><p>صوّر الصفحة من فوقها مباشرة في ضوء جيد، وصفحةً في كل صورة. البرومبت يطلب من النموذج أن يضع [يحتاج تحقق] بدل أن يخمّن، فابحث عن هذا الوسم وصحح ما تحته.</p></details>
+    <details><summary>انقطع الرد في منتصفه</summary><p>اكتب «تابع». سيكمل من آخر سطر دون تكرار.</p></details>
+    <details><summary>وصلت إلى حد الرسائل المجانية</summary><p>استخدم أمر الاستئناف في قسم تحدي البرومبت الواحد، وانتقل إلى النموذج البديل المذكور في بطاقة المهمة. حدود النماذج المجانية تتغير باستمرار، فلا تعتمد على رقم ثابت.</p></details>
+    <details><summary>أعطاني النموذج كودًا ولا أعرف ماذا أفعل به</summary><p>انسخ الكود كاملًا، والصقه في ملف نصي، واحفظه باسم ينتهي بـ ‎.html‎ ثم افتحه بالمتصفح. وفي Gemini وClaude يظهر الناتج غالبًا معاينةً جاهزة تشاركها برابط.</p></details>
+    <details><summary>النص العربي داخل الصورة مشوَّه</summary><p>هذا متكرر في الصور المولّدة. لذلك نطلب الإنفوغراف والعرض بصيغة HTML، حيث يُكتب النص بخط حقيقي لا يُرسم رسمًا.</p></details>
+    <details><summary>هل أنشر مخرجاتي على وسائل التواصل؟</summary><p>انشر عملك أنت، ولا تنشر صفحات الكتاب نفسها. وتأكد أن المخرج لا يحتوي صور طلاب أو أسماءهم.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b style="color:var(--ink)">نهج AI</b> · إعداد وتدريب أ. محمد التهامي · <a href="https://youtube.com/@-mmss" target="_blank" rel="noopener">قناة الشروحات على يوتيوب</a><br>
+    توصيات النماذج وحدودها المجانية مبدئية وتتغير؛ آخر مراجعة: نوفمبر 2026.
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== Configuration: edit here ===== */
+const CONFIG = {
+  brand: 'نهج AI',
+  trainer: 'أ. محمد التهامي',
+  channel: 'https://youtube.com/@-mmss',
+  forms: {               // Google Forms links (empty = channel link used as fallback)
+    register: '',        // تسجيل الإنجاز ورقم الشارة
+    feedback: '',        // ما الذي أوقفك أو أبطأك؟
+    preregister: '',     // قائمة انتظار المستوى المتقدم
+    institutions: ''     // طلب تدريب مؤسسي
+  },
+  trainerRole: 'معلم علوم وباحث في تطبيقات الذكاء الاصطناعي، يدرّب على إنتاج الوسائل التعليمية بطريقة مبتكرة وبسيطة ومواكبة.',
+  // Per-task video: a file shipped with the page (e.g. 'videos/info.mp4') plays inline; a web link opens outside.
+  videos: { info:'', slides:'', quiz:'', game:'', video:'' },
+  tour: '',            // e.g. 'videos/tour.mp4' — platform tour shown under the journey
+  showcase: [          // e.g. {title:'الزواحف تتحدث عن نفسها', desc:'...', src:'videos/reptiles.mp4', task:'video'}
+  ]
+};
+const SUBJECTS = {
+  sci:{n:'العلوم',rules:`- احتفظ بالمصطلحات العلمية والوحدات كما في الكتاب (النظام الدولي SI)، واكتب الرموز والمعادلات باتجاه من اليسار إلى اليمين.
+- فرّق بوضوح بين الملاحظة والاستنتاج، وبين الحقيقة والفرضية.
+- إن ورد نشاط عملي فأضف تنبيه السلامة الوارد في الكتاب.
+- الرسوم التوضيحية تحمل أسماء الأجزاء بالعربية كما في الكتاب.
+- في الكويز سؤال تطبيقي واحد على الأقل يربط المفهوم بالحياة اليومية.`,
+    short:'المصطلحات والوحدات كما في الكتاب، المعادلات LTR، تمييز الملاحظة عن الاستنتاج، تنبيهات السلامة، وسؤال تطبيقي.',
+    note:'يراعي القالب المصطلحات والوحدات، والتمييز بين الملاحظة والاستنتاج، وتنبيهات السلامة في الأنشطة العملية.'},
+  math:{n:'الرياضيات',rules:`- اكتب كل معادلة وعدد داخل وسم باتجاه ltr حتى لا تنقلب الرموز، واستخدم الأرقام والرموز كما في الكتاب.
+- اعرض الحل خطوة خطوة، ولا تقفز فوق أي خطوة جبرية.
+- تحقق من كل ناتج حسابي مرتين بطريقتين مختلفتين قبل كتابته، واذكر ذلك في قائمة المراجعة.
+- اجعل البدائل الخاطئة في الكويز مبنية على أخطاء الطلاب الشائعة (خطأ إشارة، ترتيب عمليات…).
+- قلّل النص في الإنفوغراف والشرائح لصالح الأمثلة المحلولة.`,
+    short:'المعادلات LTR، الحل خطوة خطوة، تحقق مزدوج من كل ناتج، وبدائل خاطئة من أخطاء الطلاب الشائعة.',
+    note:'يكتب المعادلات من اليسار لليمين، ويحل خطوة خطوة، ويتحقق من كل ناتج مرتين، ويبني البدائل الخاطئة من أخطاء الطلاب الشائعة.'},
+  ar:{n:'اللغة العربية',rules:`- اضبط بالشكل الكلمات المستهدفة وكل كلمة يتغير معناها بضبطها.
+- انقل الشواهد الشعرية والنصوص كما وردت في الكتاب حرفًا بحرف، ولا تؤلف شواهد من عندك.
+- اعرض القواعد في جداول مقارنة، وأعطِ لكل قاعدة مثالًا من الكتاب.
+- راجع الهمزات والتاء المربوطة والألف اللينة في كل مخرج.
+- ألعاب المادة: تصنيف الكلمات، والإعراب، وإكمال الشاهد.`,
+    short:'ضبط الكلمات المستهدفة، الشواهد حرفيًا من الكتاب، جداول للقواعد، ومراجعة إملائية دقيقة.',
+    note:'يضبط الكلمات بالشكل، وينقل الشواهد حرفيًا من الكتاب، ويعرض القواعد في جداول، ويدقق الإملاء.'},
+  isl:{n:'الدراسات الإسلامية',rules:`- لا تكتب أي آية أو حديث من حفظك. انقل الآيات والأحاديث كما وردت في صفحات الكتاب حرفيًا بالضبط الكامل، مع اسم السورة ورقم الآية، أو راوي الحديث ومصدره كما في الكتاب.
+- إن لم تقرأ نص آية أو حديث بوضوح فاكتب مكانه: [نص الآية: سورة … رقم … يُنسخ من المصحف] ولا تحاول إكماله.
+- لا تضع صورًا أو رسومًا للأنبياء أو الصحابة، ولا موسيقى في الألعاب والمقاطع؛ استخدم مؤثرات خفيفة فقط.
+- التزم بالمصطلحات الشرعية وتعريفاتها كما في الكتاب، وبأسلوب يليق بقدسية النصوص.
+- في قائمة المراجعة: اطلب من المعلم مطابقة كل آية وحديث مع الكتاب أو المصحف.`,
+    short:'الآيات والأحاديث حرفيًا من الكتاب فقط مع مصدرها، ووسم [يُنسخ من المصحف] عند عدم الوضوح، بلا صور للأنبياء والصحابة وبلا موسيقى.',
+    note:'يمنع النموذج من كتابة أي آية أو حديث من حفظه، ويطلب نقلها حرفيًا من الكتاب مع مصدرها. المطابقة مع المصحف إلزامية قبل الاستخدام.'},
+  en:{n:'اللغة الإنجليزية',rules:`- محتوى الطالب (الإنفوغراف، الشرائح، الكويز، اللعبة) بالإنجليزية وباتجاه dir="ltr"، وملاحظات المعلم وقائمة المراجعة بالعربية.
+- التزم بمفردات الوحدة وتراكيبها كما في الكتاب، وبمستوى لغوي يناسب الصف.
+- لكل مفردة جديدة: النطق المبسّط، ومثال في جملة، وصورة SVG بسيطة إن أمكن.
+- الكويز يجمع المفردات والقواعد والفهم، واللعبة مطابقة كلمة بمعنى أو بصورة.
+- مقطع المادة: حوار قصير بين شخصيتين يوظف مفردات الدرس.`,
+    short:'محتوى الطالب بالإنجليزية LTR وملاحظات المعلم بالعربية، مفردات الوحدة فقط، نطق ومثال لكل مفردة، ومقطع حواري.',
+    note:'محتوى الطالب بالإنجليزية من اليسار لليمين، وملاحظات المعلم بالعربية، مع نطق ومثال لكل مفردة جديدة.'},
+  other:{n:'مادة أخرى',rules:`- التزم بمصطلحات المادة وأسلوبها كما في الكتاب.`,short:'التزم بمصطلحات المادة كما في الكتاب.',note:'قالب عام. اكتب اسم المادة بالتحديد في الخانة التالية.'}
+};
+const MODELS = {
+  gemini:{n:'Gemini',u:'https://gemini.google.com'},
+  chatgpt:{n:'ChatGPT',u:'https://chatgpt.com'},
+  claude:{n:'Claude',u:'https://claude.ai'},
+  deepseek:{n:'DeepSeek',u:'https://chat.deepseek.com'},
+  grok:{n:'Grok',u:'https://grok.com'}
+};
+const TASKS = {
+  info:{t:'إنفوغراف',get:'صفحة A4 واحدة تلخّص الدرس بصريًا، تُطبع أو تُحفظ PDF.',
+    ex:'gemini',rv:'claude',fb:'chatgpt',
+    why:'Gemini Canvas يعرض ملف HTML معاينةً مباشرة، ويصدّر إلى PDF.',
+    steps:['اختر «إنفوغراف» في تحدي البرومبت الواحد وانسخ الأمر.','في Gemini فعّل Canvas إن ظهر لك، ثم الصق الأمر وأرفق الصور.','افتح المعاينة، ثم اطبعها PDF من المتصفح.','اطلب «راجع»، ثم طابق بنفسك كل معلومة مع الكتاب.'],
+    spec:'إنفوغراف (HTML): صفحة عمودية بمقاس A4 جاهزة للطباعة PDF، من 5 إلى 7 أقسام بأيقونات SVG، لا تتجاوز 120 كلمة، وألوان هادئة متناسقة.'},
+  slides:{t:'عرض تقديمي',get:'من 8 إلى 10 شرائح تُعرض في المتصفح وتُطبع PDF، مع ملاحظات المعلم.',
+    ex:'gemini',rv:'claude',fb:'chatgpt',
+    why:'Gemini Canvas ينتج الشرائح ويصدّرها، وClaude دقيق في مراجعة المحتوى.',
+    steps:['اختر «عرض» وانسخ الأمر.','الصقه مع الصور، واستلم ملف الشرائح.','اعرضه بالأسهم أو بالسحب على الجوال، واحفظه PDF بزر الطباعة.','إن أردت PowerPoint فاطلب: «حوّل هذا المحتوى إلى مخطط شرائح أنسخه إلى PowerPoint».'],
+    spec:'عرض تقديمي (HTML): من 8 إلى 10 شرائح بنسبة 16:9، تنقل بالأسهم وبالسحب على الجوال، وزر «طباعة PDF» يطبع كل شريحة صفحة مستقلة. لا تتجاوز الشريحة 30 كلمة. الترتيب: العنوان، الأهداف، المفاهيم، الأمثلة، نشاط صفي، ملخص، سؤال ختامي. بعد الكود اكتب ملاحظات المعلم لكل شريحة نصًا.'},
+  quiz:{t:'كويز',get:'10 أسئلة تفاعلية بتصحيح فوري وتفسير، ومفتاح إجابات مرتبط بصفحات الكتاب.',
+    ex:'deepseek',rv:'chatgpt',fb:'gemini',
+    why:'DeepSeek جيد في الأسئلة المنظمة، ومراجعة مفتاح الإجابة بنموذج آخر تكشف الأخطاء.',
+    steps:['اختر «كويز» وانسخ الأمر.','في DeepSeek ارفع الصور؛ إن لم يقرأ الصور جيدًا فالصق بطاقة مصدر الدرس بدلها.','احفظ الكود ملف ‎.html‎ وافتحه على هاتفك.','راجع مفتاح الإجابات بنموذج آخر، ثم بنفسك سؤالًا سؤالًا.'],
+    spec:'كويز تفاعلي (HTML): 10 أسئلة (6 اختيار من متعدد، 2 صح/خطأ، 2 أكمل الفراغ)، تصحيح فوري مع تفسير قصير، وعرض الدرجة النهائية وزر إعادة. بعد الكود اكتب مفتاح الإجابات نصًا مع موضع كل إجابة في الكتاب (الصفحة أو الفقرة).'},
+  game:{t:'لعبة تعليمية',get:'لعبة مراجعة تعمل باللمس، بأصوات وشاشة فوز.',
+    ex:'claude',rv:'chatgpt',fb:'gemini',
+    why:'Claude يشغّل الألعاب التفاعلية معاينةً مباشرة ويتيح مشاركتها برابط.',
+    steps:['اختر «لعبة» وانسخ الأمر.','في Claude ستظهر اللعبة جاهزة للتجربة بجانب المحادثة.','جرّبها على الهاتف، واطلب «عدّل: …» لأي تغيير.','للمراجعة السريعة دون أكواد جرّب Padlet Arcade (مجاني حاليًا وقد يتغير).'],
+    spec:'لعبة تعليمية (HTML): لعبة مراجعة تعمل باللمس، اختر الأنسب للدرس من: مطابقة البطاقات / سباق أسئلة بمؤقت / عجلة الأسئلة. أصوات بسيطة عبر WebAudio مع زر كتم، وشاشة فوز تعرض النتيجة.'},
+  video:{t:'مقطع قصير',get:'سيناريو من 6 مشاهد بنص منطوق وبرومبتات توليد، ونسخة «أنا … أعرّفكم بنفسي».',
+    ex:'chatgpt',rv:'claude',fb:'gemini',
+    why:'نكتب السيناريو بنموذج نصي، ثم نولّد المشاهد في Grok Imagine إن أتاحه حسابك المجاني، أو نركّبها في Canva.',
+    steps:['اختر «مقطع» وانسخ الأمر.','خذ برومبت كل مشهد (بالإنجليزية) إلى Grok Imagine لتوليد صورة أو مقطع قصير.','إن لم يتح التوليد مجانًا: ركّب الصور والتعليق الصوتي في Canva وصدّر MP4.','افحص الصوت حتى آخر ثانية قبل النشر.'],
+    spec:'مقطع قصير (60–90 ثانية): سيناريو من 6 مشاهد. لكل مشهد: النص المنطوق بالعربية، ووصف بصري، وبرومبت إنجليزي قصير لتوليد صورة أو مقطع المشهد. ثم نسخة بديلة بأسلوب «أنا [عنصر من الدرس] أعرّفكم بنفسي».',
+    extra:'grok'}
+};
+const ORDER = ['info','slides','quiz','game','video'];
+const RUBRIC = [['الدقة العلمية وخلوّه من الأخطاء',30],['الارتباط بالمنهج وأهداف الدرس',25],['القيمة التعليمية والملاءمة للعمر',20],['وضوح التصميم واللغة',15],['قابلية الاستخدام داخل الصف',10]];
+const ERRORS = [
+  ['اختراع معلومة ليست في الكتاب','يضيف النموذج حقائق أو أمثلة من عنده، أحيانًا صحيحة وأحيانًا لا.','راجع المخرج مقابل بطاقة المصدر، واحذف كل معلومة غير موجودة فيها أو ضع بجانبها [إضافة من خارج الكتاب].'],
+  ['نص عربي مقطّع أو معكوس داخل صورة','الصور المولّدة ترسم الحروف رسمًا فتتشوّه.','لا تضع نصًا داخل الصور. اكتب كل النصوص بخط Tajawal داخل HTML، واجعل الصور رسومًا بلا كتابة.'],
+  ['شرائح مزدحمة بالكلام','النموذج ينقل فقرات الكتاب كما هي إلى الشرائح.','اختصر كل شريحة إلى 30 كلمة كحد أقصى، وانقل الشرح إلى ملاحظات المعلم.'],
+  ['إجابة خاطئة في مفتاح الكويز','أخطر الأخطاء لأنها تُصحَّح على الطالب.','راجع مفتاح الإجابات سؤالًا سؤالًا، واذكر لكل سؤال موضع إجابته في الكتاب، وصحّح أي سؤال لا يطابقه.'],
+  ['لعبة لا تعمل باللمس','تعمل على الحاسوب وتتعطل على الجوال.','اجعل اللعبة تعمل باللمس على شاشة عرضها 375 بكسل، وكبّر الأزرار إلى 48 بكسل على الأقل.'],
+  ['ردّ انقطع والكود ناقص','الملف الطويل يتجاوز طول الرد الواحد.','تابع من آخر سطر بالضبط، ثم أعد كتابة الملف كاملًا في كتلة كود واحدة إذا كان أقصر من 300 سطر.']
+];
+
+/* ===== State ===== */
+const KEY='nahj.v1';
+let S={mode:'all',ver:'full',f:{field:'sci',subj:'',grade:'',title:'',mins:45},done:{},checks:{},rub:{},before:'',pname:'',serial:'',t0:0,tFirst:0};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+if(!S.f.field)S.f.field='sci';
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const $=id=>document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast._);toast._=setTimeout(()=>t.classList.remove('on'),2200)}
+async function copy(text){
+  try{await navigator.clipboard.writeText(text);toast('نُسخ. الصقه في النموذج الآن.');}
+  catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){};ta.remove();toast(ok?'نُسخ. الصقه في النموذج الآن.':'لم يُسمح بالنسخ التلقائي. ظلّل النص وانسخه يدويًا.')}
+}
+
+/* ===== Prompts ===== */
+const mins=n=>n==1?'دقيقة واحدة':n==2?'دقيقتين':(n>=3&&n<=10)?n+' دقائق':n+' دقيقة';
+const v=(x,d)=>x&&x.trim()?x.trim():d;
+function subjName(f){const F=SUBJECTS[f.field]||SUBJECTS.other;return v(f.subj,F.n==='مادة أخرى'?'[المادة]':F.n)}
+function special(f,short){const F=SUBJECTS[f.field]||SUBJECTS.other;return short?`خصوصية المادة: ${F.short}`:`## خصوصية مادة ${F.n==='مادة أخرى'?subjName(f):F.n}\n${F.rules}`}
+function header(f){return `أنت مصمم تعليمي خبير ومعلم ${subjName(f)} للصف ${v(f.grade,'[الصف]')}.`}
+function data(f){return `## بيانات الدرس
+- المادة: ${subjName(f)}
+- الصف والمرحلة: ${v(f.grade,'[الصف]')}
+- عنوان الدرس: ${v(f.title,'[العنوان]')}
+- مدة الحصة: ${f.mins||45} دقيقة`}
+const RULES_CORE=`1. المصدر الوحيد هو الصفحات المرفقة. أي معلومة ليست فيها ضع بجانبها [إضافة من خارج الكتاب]. وأي نص لا تقرؤه بوضوح ضع مكانه [يحتاج تحقق]، ولا تخمّنه.
+2. لغة عربية فصحى مبسطة تناسب الصف، والمصطلحات كما وردت في الكتاب حرفيًا.
+3. كل جزء يُطلب فيه HTML: ملف واحد مكتمل داخل كتلة كود واحدة، dir="rtl"، خط Tajawal من Google Fonts، يعمل على الجوال والحاسوب، بلا مكتبات خارجية أخرى، وبلا صور من الإنترنت (استخدم رسوم SVG بسيطة ورموزًا تعبيرية).`;
+const STATE=`\`\`\`
+---حالة---
+الدرس: [العنوان] | [الصف]
+المكتمل: [أرقام الأجزاء]
+الحالي: الجزء [رقم] — [مكتمل / توقف عند: آخر عنصر]
+التالي: الجزء [رقم]
+---
+\`\`\``;
+function promptAll(f,short){
+  const parts=[`الجزء 0 — بطاقة مصدر الدرس (نص فقط، موجز): أهداف الدرس (3–5)، المصطلحات وتعريفاتها كما في الكتاب، الحقائق الرئيسية مرقمة، الأمثلة والأشكال الواردة، النقاط الصعبة المتوقعة على الطلاب، وقائمة بأي نص غير واضح.`]
+    .concat(ORDER.map((k,i)=>`الجزء ${i+1} — ${TASKS[k].spec}`));
+  if(short){
+    return `${header(f)} حوّل صفحات الكتاب المرفقة إلى حقيبة درس من 6 أجزاء، جزءًا في كل رد، ولا تنتقل إلا إذا كتبتُ «التالي».
+${data(f)}
+${special(f,true)}
+القواعد: المصدر الوحيد هو الصفحات المرفقة، وما ليس فيها أضعه بوسم [إضافة من خارج الكتاب]، وما لا يُقرأ بوضوح [يحتاج تحقق]. كل HTML ملف واحد RTL بخط Tajawal يعمل على الجوال وبلا صور خارجية. أوامري: تابع / التالي / راجع / عدّل: … . اختم كل رد ببطاقة حالة (المكتمل، الحالي، التالي).
+الأجزاء:
+0) بطاقة مصدر الدرس: الأهداف، المصطلحات، الحقائق المرقمة، الصعوبات.
+1) إنفوغراف HTML بمقاس A4، 120 كلمة كحد أقصى.
+2) عرض HTML من 8–10 شرائح 16:9 بزر طباعة PDF، وملاحظات المعلم.
+3) كويز HTML من 10 أسئلة بتصحيح فوري، ومفتاح إجابات بمواضعها في الكتاب.
+4) لعبة مراجعة HTML تعمل باللمس.
+5) سيناريو مقطع من 6 مشاهد، مع برومبت إنجليزي لكل مشهد.
+ابدأ بالجزء 0 فقط.`;
+  }
+  return `${header(f)} مهمتك تحويل صفحات الكتاب المرفقة إلى «حقيبة درس» من 6 أجزاء، جزءًا واحدًا في كل رد.
+
+${data(f)}
+
+${special(f,false)}
+
+## قواعد ثابتة
+${RULES_CORE}
+4. لا تبدأ الجزء التالي إلا إذا كتبتُ: التالي.
+5. أوامري المختصرة:
+   - تابع: أكمل من آخر سطر توقفت عنده بالضبط، دون تكرار ما سبق.
+   - التالي: ابدأ الجزء التالي.
+   - راجع: راجع الجزء الحالي مقابل بطاقة المصدر، واذكر الأخطاء ثم قدّم النسخة المصححة.
+   - عدّل: [طلبي]: نفّذ التعديل على الجزء الحالي فقط.
+6. في نهاية كل رد اكتب بطاقة الحالة بهذا الشكل حرفيًا:
+${STATE}
+
+## الأجزاء
+${parts.join('\n\n')}
+
+ابدأ الآن بالجزء 0 فقط.`;
+}
+function promptOne(k,f,short){
+  const T=TASKS[k];
+  if(short) return `${header(f)} من صفحات الكتاب المرفقة أنشئ: ${T.spec}
+${data(f)}
+${special(f,true)}
+القواعد: المصدر الوحيد هو الصفحات المرفقة، وما ليس فيها أضعه بوسم [إضافة من خارج الكتاب]، وما لا يُقرأ بوضوح [يحتاج تحقق]. HTML ملف واحد RTL بخط Tajawal يعمل على الجوال. في النهاية: قائمة قصيرة بما يحتاج مراجعتي.`;
+  return `${header(f)}
+
+${data(f)}
+
+${special(f,false)}
+
+## المهمة
+اعتمادًا على صفحات الكتاب المرفقة فقط، أنشئ:
+${T.spec}
+
+## قواعد ثابتة
+${RULES_CORE}
+4. قبل البدء اكتب في ثلاثة أسطر أهم ما فهمته من الصفحات، ثم أنشئ المطلوب.
+5. إذا انقطع ردك وكتبتُ «تابع» فأكمل من آخر سطر بالضبط دون تكرار.
+6. بعد الانتهاء اكتب قائمة فحص قصيرة بما يحتاج مراجعتي البشرية.`;
+}
+const REVIEW=`أنت مراجع علمي وتربوي صارم. أرفقتُ لك مخرجًا تعليميًا أنتجه نموذج آخر، ومعه صفحات الكتاب أو بطاقة مصدر الدرس.
+
+1. قارن كل معلومة في المخرج بالمصدر، واكتب جدولًا: الخطأ | موضعه | التصحيح | جوهري أم شكلي.
+2. تحقق من كل إجابة في أي اختبار أو لعبة، واذكر موضعها في المصدر.
+3. قيّم المخرج بهذا السلم، وأعطِ لكل معيار درجة وتعليقًا من سطر واحد:
+   - الدقة العلمية وخلوّه من الأخطاء (30)
+   - الارتباط بالمنهج وأهداف الدرس (25)
+   - القيمة التعليمية والملاءمة للعمر (20)
+   - وضوح التصميم واللغة (15)
+   - قابلية الاستخدام داخل الصف (10)
+4. اختم بالمجموع من 100، وبقائمة التعديلات المطلوبة مرتبة حسب الأهمية.
+لا تجامل. إذا لم تجد خطأً فاذكر ما تحققت منه بالتحديد.`;
+const WORKSHOP=`أريد بناء برومبت ممتاز لمهمة تعليمية، ولا أريدك أن تنفذ المهمة نفسها.
+مهمتي: [صف ما تريد إنتاجه، مثل: ورقة عمل، خطة علاجية، نشاط جماعي]
+مادتي وصفي: [المادة والصف]
+
+اسألني حتى 5 أسئلة قصيرة تحتاجها لفهم المطلوب، سؤالًا سؤالًا. بعد إجاباتي اكتب البرومبت النهائي في كتلة واحدة، بحيث يتضمن: الدور، وبيانات الدرس، والمهمة، وشكل المخرج، وقواعد الدقة (الاعتماد على المصدر، ووسم [يحتاج تحقق])، وقائمة مراجعة في النهاية.`;
+function resume(src,state){
+  return `أكمل «حقيبة درس» بدأها نموذج آخر، بالقواعد نفسها.
+
+## القواعد والأجزاء
+${promptAll(S.f,false)}
+
+## بطاقة مصدر الدرس (المرجع الوحيد بدل صور الكتاب)
+${v(src,'[ألصق الجزء 0]')}
+
+## آخر بطاقة حالة
+${v(state,'[ألصقها]')}
+
+ابدأ مباشرة من الجزء المذكور في «التالي»، ولا تُعد أي جزء مكتمل.`;
+}
+
+/* ===== Builder ===== */
+function render(){
+  const f=S.f, m=S.mode, short=S.ver==='short';
+  $('promptMain').textContent = m==='all'?promptAll(f,short):promptOne(m,f,short);
+  const ex = m==='all'?'gemini':TASKS[m].ex;
+  const M=MODELS[ex];
+  $('openRec').textContent='افتح '+M.n; $('openRec').href=M.u;
+  $('subjNote').textContent=(SUBJECTS[S.f.field]||SUBJECTS.other).note;
+  $('outLbl').textContent = m==='all'?'أمر الحقيبة كاملة':'أمر '+TASKS[m].t;
+  $('recNote').innerHTML = m==='all'
+    ? 'النموذج المقترح للحقيبة: <b>Gemini</b>، والبديل: ChatGPT. التوصية مبدئية حتى نتائج الاختبار.'
+    : `المنفّذ المقترح: <b>${M.n}</b> · المراجع: ${MODELS[TASKS[m].rv].n}`;
+  save();
+}
+const fs=$('field');Object.entries(SUBJECTS).forEach(([k,o])=>{const op=document.createElement('option');op.value=k;op.textContent=o.n;fs.appendChild(op)});
+fs.value=S.f.field;fs.addEventListener('change',()=>{S.f.field=fs.value;render()});
+['subj','grade','title','mins'].forEach(id=>{const el=$(id);el.value=S.f[id]??el.value;el.addEventListener('input',()=>{S.f[id]=el.value;render()})});
+function seg(id,attr,key){
+  const g=$(id);g.querySelectorAll('button').forEach(b=>{
+    b.setAttribute('aria-pressed',String(b.dataset[attr]===S[key]));
+    b.addEventListener('click',()=>{S[key]=b.dataset[attr];g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));render()});
+  });
+}
+seg('mode','m','mode'); seg('ver','v','ver');
+$('copyMain').addEventListener('click',()=>{copy($('promptMain').textContent);if(!S.t0){startTimer()}});
+$('copyResume').addEventListener('click',()=>copy(resume($('srcCard').value,$('stateCard').value)));
+
+/* ===== Timer ===== */
+let tick=null;
+function fmt(ms){const s=Math.floor(ms/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function runClock(){clearInterval(tick);tick=setInterval(()=>{$('tclock').textContent=fmt(Date.now()-S.t0)},1000);$('tclock').textContent=fmt(Date.now()-S.t0)}
+function startTimer(){S.t0=Date.now();S.tFirst=0;save();$('tstart').classList.add('hide');$('tdone').classList.remove('hide');$('tnote').textContent='المؤقت يعمل. اضغط «أنجزت» عند اكتمال أول وسيلة.';runClock()}
+$('tstart').addEventListener('click',startTimer);
+$('tdone').addEventListener('click',()=>{
+  clearInterval(tick);S.tFirst=Math.max(1,Math.round((Date.now()-S.t0)/60000));
+  const k=S.mode==='all'?'info':S.mode; S.done[k]=true; save();
+  $('tdone').classList.add('hide');$('tstart').classList.remove('hide');$('tstart').textContent='ابدأ مؤقتًا جديدًا';
+  showCan(); renderProg();
+});
+function showCan(){
+  if(!S.tFirst) return;
+  const b=parseInt(S.before,10);
+  let txt=`أنجزت أول وسيلة في ${mins(S.tFirst)}. قبل قليل كنت تتساءل كيف تبدأ، والآن بين يديك منتج صنعته بنفسك.`;
+  if(b>S.tFirst) txt+=` وفّرت ${mins(b-S.tFirst)} مقارنة بتقديرك للعمل اليدوي.`;
+  txt+=' جرّب الوسيلة الثانية، وراقب كيف ينخفض الوقت.';
+  $('canTxt').textContent=txt;$('can').classList.add('show');
+}
+if(S.t0&&!S.tFirst){$('tstart').classList.add('hide');$('tdone').classList.remove('hide');runClock()}
+if(S.tFirst) showCan();
+
+/* ===== Tasks ===== */
+const isFile=u=>!!u&&/\.(mp4|webm|m4v)$/i.test(u)&&!/^https?:/i.test(u);
+const yt=`<svg width="28" height="20" viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#C2412D"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg>`;
+function taskHTML(k){
+  const T=TASKS[k],L=x=>`<a href="${MODELS[x].u}" target="_blank" rel="noopener">${MODELS[x].n}</a>`;
+  const vurl=CONFIG.videos[k]||CONFIG.channel;
+  return `<div class="task" role="tabpanel" id="panel-${k}">
+   <div><h3>${T.t}</h3><p>${T.get}</p><ol>${T.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+   <p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="button" data-use="${k}">جهّز أمر ${T.t}</button></p></div>
+   <div><table class="route"><tr><th>المنفّذ المقترح</th><td>${L(T.ex)}${T.extra?' + '+L(T.extra)+' للمشاهد':''}</td></tr>
+   <tr><th>المراجع</th><td>${L(T.rv)}</td></tr><tr><th>البديل عند نفاد الحصة</th><td>${L(T.fb)}</td></tr></table>
+   <p class="limit"><b>لماذا؟</b> ${T.why}<br>الحدود المجانية تتغير باستمرار؛ إن توقف النموذج فانتقل إلى البديل بأمر الاستئناف.</p>
+   ${isFile(CONFIG.videos[k])?`<div class="vidbox"><video controls playsinline preload="metadata" src="${CONFIG.videos[k]}"></video></div>`:`<a class="vid" href="${vurl}" target="_blank" rel="noopener">${yt}<span>${CONFIG.videos[k]?'شاهد شرح هذه المهمة':'شروحات المهام على قناة المدرب'}</span></a>`}</div></div>`;
+}
+const tabs=$('tabs');
+ORDER.forEach((k,i)=>{const b=document.createElement('button');b.type='button';b.role='tab';b.id='tab-'+k;b.textContent=TASKS[k].t;b.setAttribute('aria-selected',String(i===0));b.setAttribute('aria-controls','panel-'+k);b.addEventListener('click',()=>showTask(k));tabs.appendChild(b)});
+function showTask(k){tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',String(b.id==='tab-'+k)));$('taskBox').innerHTML=taskHTML(k)}
+$('taskBox').addEventListener('click',e=>{const b=e.target.closest('[data-use]');if(!b)return;S.mode=b.dataset.use;document.querySelectorAll('#mode button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.m===S.mode)));render();location.hash='challenge';toast('جهّزنا الأمر. أكمل بيانات درسك ثم انسخه.')});
+showTask('info');
+$('trainerRole').textContent=CONFIG.trainerRole;
+if(isFile(CONFIG.tour)){$('tourBox').innerHTML=`<video controls playsinline preload="metadata" src="${CONFIG.tour}"></video>`;$('tourBox').classList.remove('hide')}
+if(CONFIG.showcase.length){
+  $('showGrid').innerHTML=CONFIG.showcase.map(x=>`<figure><video controls playsinline preload="metadata" src="${x.src}"></video><figcaption><b>${x.title}</b><span>${x.desc||''}</span>${x.task?`<p style="margin:8px 0 0"><button class="btn alt" type="button" data-use="${x.task}">اصنع مثله لدرسك</button></p>`:''}</figcaption></figure>`).join('');
+  $('showcase').classList.remove('hide');$('navShow').classList.remove('hide');
+  $('showGrid').addEventListener('click',e=>{const b=e.target.closest('[data-use]');if(!b)return;S.mode=b.dataset.use;document.querySelectorAll('#mode button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.m===S.mode)));render();location.hash='challenge';toast('جهّزنا الأمر. أكمل بيانات درسك ثم انسخه.')});
+}
+
+/* ===== Review & rubric ===== */
+$('promptReview').textContent=REVIEW; $('promptWorkshop').textContent=WORKSHOP;
+$('copyReview').addEventListener('click',()=>copy(REVIEW)); $('copyWorkshop').addEventListener('click',()=>copy(WORKSHOP));
+const rb=$('rub').querySelector('tbody');
+RUBRIC.forEach(([n,w],i)=>{const tr=document.createElement('tr');const val=S.rub[i]??0;
+  tr.innerHTML=`<td>${n}</td><td>${w}%</td><td><input type="range" min="0" max="${w}" step="1" value="${val}" aria-label="${n}"> <output>${val}</output></td>`;
+  const r=tr.querySelector('input');r.addEventListener('input',()=>{S.rub[i]=+r.value;tr.querySelector('output').textContent=r.value;scoreUp()});rb.appendChild(tr)});
+function scoreUp(){const s=RUBRIC.reduce((a,_,i)=>a+(S.rub[i]||0),0);$('score').textContent=s+'%';
+  $('scoreNote').textContent = s===0?'حرّك المؤشرات بعد مراجعة مخرجك.': (S.rub[0]||0)<20?'الدقة العلمية أولًا: أي خطأ جوهري يمنع استخدام المخرج مهما كان المجموع.': s>=80?'مخرج جاهز للاستخدام بعد مراجعتك النهائية.':'حسّن المعايير الأضعف ثم أعد التقييم.';save();renderProg()}
+scoreUp();
+document.querySelectorAll('#human input').forEach(c=>{c.checked=!!S.checks[c.id];c.addEventListener('change',()=>{S.checks[c.id]=c.checked;save();renderProg()})});
+
+/* ===== Errors ===== */
+$('errs').innerHTML=ERRORS.map(([t,p,c],i)=>`<div class="err"><b>${t}</b><p>${p}</p><code>${c}</code><p style="margin:8px 0 0"><button class="btn alt" type="button" data-err="${i}">انسخ أمر العلاج</button></p></div>`).join('');
+$('errs').addEventListener('click',e=>{const b=e.target.closest('[data-err]');if(b)copy(ERRORS[+b.dataset.err][2])});
+
+/* ===== Progress & badge ===== */
+const ol=$('outsList');
+ORDER.forEach(k=>{const li=document.createElement('li');li.innerHTML=`<input type="checkbox" id="d-${k}"><label for="d-${k}">أنتجت ${TASKS[k].t} وراجعته</label>`;ol.appendChild(li);
+  const c=li.querySelector('input');c.checked=!!S.done[k];c.addEventListener('change',()=>{S.done[k]=c.checked;save();renderProg()})});
+['before','pname'].forEach(id=>{$(id).value=S[id]||'';$(id).addEventListener('input',()=>{S[id]=$(id).value;save();drawBadge();showCanSoft()})});
+function showCanSoft(){if(S.tFirst)showCan()}
+function count(){return ORDER.filter(k=>S.done[k]).length}
+function reviewed(){return Object.values(S.checks).filter(Boolean).length>=2}
+function level(){const n=count();if(n>=5&&reviewed())return 'الحقيبة الكاملة';if(n>=2&&reviewed())return 'المعلم المنطلق';if(n>=1)return 'انطلاقة';return ''}
+function serial(){if(!S.serial){const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<4;i++)r+=a[Math.floor(Math.random()*a.length)];const d=new Date();S.serial=`NAHJ-${String(d.getFullYear()).slice(2)}${String(d.getMonth()+1).padStart(2,'0')}-${r}`;save()}return S.serial}
+function renderProg(){
+  const n=count();$('meter').style.width=(n/5*100)+'%';
+  const lv=level();
+  $('progNote').textContent = n===0?'لم تُنتج وسيلة بعد. ابدأ بالإنفوغراف، فهو الأسرع.':
+    lv==='انطلاقة'?`أنتجت ${n} من 5. أنت على الطريق. وسيلة ثانية مع مراجعتها تفتح شارة المعلم المنطلق.`:
+    `أنتجت ${n} من 5.${n<5?' أكمل الحقيبة للحصول على شارة الحقيبة الكاملة.':''}`;
+  if(n>=2&&!reviewed()) $('progNote').textContent+=' أكمل قائمة «قبل أن تعرضه على طلابك» لتفتح الشارة التالية.';
+  drawBadge();
+}
+function regUrl(){return CONFIG.forms.register||CONFIG.channel}
+$('regLink').href=regUrl(); $('fbLink').href=CONFIG.forms.feedback||CONFIG.channel;
+$('preLink').href=CONFIG.forms.preregister||CONFIG.channel; $('instLink').href=CONFIG.forms.institutions||CONFIG.channel;
+if(!CONFIG.forms.register){$('regLink').textContent='التسجيل يُفتح قريبًا'}
+function drawBadge(){
+  const c=$('badge'),x=c.getContext('2d'),W=c.width,H=c.height,lv=level();
+  x.clearRect(0,0,W,H);x.fillStyle='#FFFFFF';x.fillRect(0,0,W,H);
+  x.strokeStyle='#E7ECEE';x.lineWidth=2;x.beginPath();x.moveTo(60,500);x.lineTo(W-60,500);x.stroke();
+  x.fillStyle='#16233A';x.fillRect(0,0,W,18);
+  x.direction='rtl';x.textAlign='right';
+  x.font='700 46px "Readex Pro"';x.fillStyle='#16233A';x.fillText('نهج',W-60,92);
+  const nw=x.measureText('نهج').width;x.fillStyle='#F7DC4A';x.fillRect(W-60-nw-104,52,92,52);x.fillStyle='#16233A';x.textAlign='center';x.fillText('AI',W-60-nw-58,94);
+  x.textAlign='right';
+  if(!lv){x.font='500 34px "Readex Pro"';x.fillStyle='#6B7A90';x.fillText('شارتك تظهر هنا بعد أول وسيلة تنتجها',W-60,330);return}
+  x.font='500 28px "Readex Pro"';x.fillStyle='#3A4A63';x.fillText('شارة إتمام تدريب تطبيقي',W-60,200);
+  const t=lv;x.font='700 72px "Readex Pro"';const tw=x.measureText(t).width;
+  x.fillStyle='#F7DC4A';x.fillRect(W-60-tw-12,236,tw+24,64);x.fillStyle='#16233A';x.fillText(t,W-60,292);
+  x.font='600 40px "Noto Naskh Arabic"';x.fillText(v(S.pname,'اسم المعلم'),W-60,388);
+  x.font='400 26px "Readex Pro"';x.fillStyle='#3A4A63';
+  const line=`أنتج ${count()} من 5 وسائل تعليمية بنماذج الذكاء الاصطناعي المجانية${S.tFirst?` · أول وسيلة في ${mins(S.tFirst)}`:''}`;
+  x.fillText(line,W-60,446);
+  x.font='500 24px "Readex Pro"';x.fillStyle='#6B7A90';
+  const d=new Date();x.fillText(`المدرب: ${CONFIG.trainer}   ·   ${d.toLocaleDateString('ar-SA-u-ca-gregory-nu-latn',{year:'numeric',month:'long',day:'numeric'})}`,W-60,560);
+  x.textAlign='left';x.direction='ltr';x.font='600 26px "Readex Pro"';x.fillStyle='#16233A';x.fillText(serial(),60,560);
+}
+let dl=null;
+(async()=>{try{if(window.claude&&claude.use){dl=await claude.use('downloads')}}catch(e){dl=null}})();
+$('saveBadge').addEventListener('click',async()=>{
+  if(!level()){toast('أنتج وسيلتك الأولى أولًا لتظهر شارتك.');return}
+  const c=$('badge');
+  if(dl){try{const blob=await new Promise(r=>c.toBlob(r,'image/png'));await dl.save({filename:`nahj-badge-${serial()}.png`,data:blob});toast('حُفظت الشارة.');return}catch(e){}}
+  try{const url=c.toDataURL('image/png');const l=document.createElement('a');l.href=url;l.download=`nahj-badge-${serial()}.png`;document.body.appendChild(l);l.click();l.remove();toast('حُفظت الشارة.');}
+  catch(e){toast('خذ لقطة شاشة للشارة؛ الحفظ المباشر غير متاح هنا.');}
+});
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{renderProg()});
+render(); renderProg();
+/* ===== Views ===== */
+$('aboutRole').textContent=CONFIG.trainerRole;
+document.querySelectorAll('[data-pre]').forEach(a=>a.href=CONFIG.forms.preregister||CONFIG.channel);
+document.querySelectorAll('[data-inst]').forEach(a=>a.href=CONFIG.forms.institutions||CONFIG.channel);
+document.querySelectorAll('.bag[data-more]').forEach(b=>b.addEventListener('click',()=>{
+  const id=b.dataset.more, el=$(id), on=!el.classList.contains('on');
+  document.querySelectorAll('.bagmore').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.bag[data-more]').forEach(x=>x.setAttribute('aria-expanded','false'));
+  if(on){el.classList.add('on');b.setAttribute('aria-expanded','true');el.scrollIntoView({behavior:'smooth',block:'nearest'})}
+}));
+const HOME=['','home','about'];
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  const inHome=HOME.includes(h);
+  $('home').classList.toggle('hide',!inHome);
+  $('bag-launch').classList.toggle('hide',inHome);
+  $('bagnav').style.visibility=inHome?'hidden':'visible';
+  if(inHome){ if(h==='about'){$('about').scrollIntoView({block:'center'})} else window.scrollTo(0,0); return }
+  if(h==='bag-launch'){window.scrollTo(0,0);return}
+  const t=document.getElementById(h); if(t) requestAnimationFrame(()=>t.scrollIntoView());
+}
+addEventListener('hashchange',route); route();
+</script>
+</body>
+</html>
