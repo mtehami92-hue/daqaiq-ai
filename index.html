@@ -949,7 +949,12 @@ function renderProg(){
 function regUrl(){return CONFIG.forms.register||CONFIG.channel}
 $('regLink').href=regUrl(); $('fbLink').href=CONFIG.forms.feedback||CONFIG.channel;
 $('preLink').href=CONFIG.forms.preregister||CONFIG.channel; $('instLink').href=CONFIG.forms.institutions||CONFIG.channel;
-if(!CONFIG.forms.register){$('regLink').textContent='التسجيل يُفتح قريبًا'}
+if(!CONFIG.form){
+  // Launch without the form: hide every form-dependent control
+  ['regLink','fbLink','preLink','instLink'].forEach(id=>{const e=$(id);if(e)e.classList.add('hide')});
+  const fb=$('fbLink'); if(fb){const card=fb.closest('.card'); if(card) card.classList.add('hide')}
+  $('badgeNote').textContent='الشارة شارة إتمام تدريب تطبيقي، وليست شهادة اعتماد مهني. احتفظ بصورتها ورقمها.';
+}
 function drawBadge(){
   const c=$('badge'),x=c.getContext('2d'),W=c.width,H=c.height,lv=level();
   x.clearRect(0,0,W,H);x.fillStyle='#FFFFFF';x.fillRect(0,0,W,H);
@@ -985,6 +990,7 @@ render(); renderProg();
 /* ===== Views ===== */
 $('aboutRole').textContent=CONFIG.trainerRole;
 document.querySelectorAll('[data-pre]').forEach(a=>a.href=CONFIG.forms.preregister||CONFIG.channel);
+if(!CONFIG.form){document.querySelectorAll('[data-pre],[data-inst]').forEach(a=>a.classList.add('hide'));document.querySelectorAll('.bagmore p').forEach(p=>p.insertAdjacentHTML('beforeend',' سنعلن موعد فتحها على قناة المدرب.'))}
 document.querySelectorAll('[data-inst]').forEach(a=>a.href=CONFIG.forms.institutions||CONFIG.channel);
 document.querySelectorAll('.bag[data-more]').forEach(b=>b.addEventListener('click',()=>{
   const id=b.dataset.more, el=$(id), on=!el.classList.contains('on');
