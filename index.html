@@ -212,24 +212,45 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
 .side .tr b{font-family:var(--ui);display:block;font-size:16px}
 .side small{color:var(--ink-3);font-size:13px}
 .bags{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:end}
-.bag{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;padding-top:34px;cursor:pointer;background:none;border:0;font:inherit;text-align:start}
-.bag .handle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:42%;height:46px;border:9px solid var(--bc);border-bottom:0;border-radius:22px 22px 0 0}
-.bag .body{position:relative;background:var(--bc);color:var(--bt);border-radius:16px;padding:30px 20px 22px;min-height:300px;box-shadow:0 2px 0 rgba(0,0,0,.08),0 22px 34px -22px rgba(22,35,58,.55)}
-.bag .body:before{content:"";position:absolute;inset:9px;border:1.5px dashed var(--bs);border-radius:11px;pointer-events:none}
-.bag .flap{position:absolute;top:0;left:0;right:0;height:62px;border-radius:16px 16px 26px 26px;background:var(--bf)}
-.bag .clasp{position:absolute;top:46px;left:50%;transform:translateX(-50%);width:38px;height:28px;border-radius:7px;background:var(--bk);display:grid;place-items:center;box-shadow:0 2px 0 rgba(0,0,0,.18)}
-.bag .clasp svg{width:16px;height:16px;fill:none;stroke:var(--bc);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.bag h2{position:relative;font-family:var(--ui);font-size:23px;margin:46px 0 4px;line-height:1.3}
-.bag .tag{position:relative;display:inline-block;font-family:var(--ui);font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bk);color:var(--bc);margin-bottom:10px}
-.bag p{position:relative;margin:0 0 10px;font-size:15px;line-height:1.75}
-.bag ul{position:relative;margin:0;padding-inline-start:18px;font-size:14.5px;line-height:1.75}
-.bag .go{position:relative;margin-top:16px;font-family:var(--ui);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center;background:var(--bk);color:var(--bc);padding:9px 16px;border-radius:9px;align-self:flex-start}
-.bag:hover .body{transform:translateY(-3px)}.bag .body{transition:transform .2s}
-.b1{--bc:#F7DC4A;--bt:#16233A;--bf:#EFCF2E;--bs:rgba(22,35,58,.35);--bk:#16233A}
-.b2{--bc:#2F62D0;--bt:#FFFFFF;--bf:#2856BA;--bs:rgba(255,255,255,.45);--bk:#FFFFFF}
-.b3{--bc:#16233A;--bt:#FFFFFF;--bf:#0F1A2C;--bs:rgba(247,220,74,.5);--bk:#F7DC4A}
-.b2 .go,.b3 .go{color:var(--bc)}
-.locked .body:after{content:"";position:absolute;inset:0;border-radius:16px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.05) 14px 28px);pointer-events:none}
+.bag{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;padding-top:34px;cursor:pointer;background:none;border:0;font:inherit;text-align:start;perspective:1000px}
+.bag .handle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:42%;height:48px;border:10px solid var(--bk2);border-bottom:0;border-radius:24px 24px 0 0;box-shadow:inset 0 3px 0 rgba(255,255,255,.35),0 -1px 0 rgba(0,0,0,.15);z-index:1}
+.bag .body{position:relative;z-index:2;color:var(--bt);border-radius:18px;padding:32px 20px 24px;min-height:310px;overflow:hidden;
+  background:linear-gradient(165deg,var(--bl) 0%,var(--bc) 42%,var(--bdk) 100%);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -14px 24px rgba(0,0,0,.18),0 10px 0 var(--bdp),0 34px 42px -22px rgba(22,35,58,.7);
+  transform:rotateX(7deg);transform-origin:50% 100%;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.bag:hover .body,.bag:focus-visible .body{transform:rotateX(2deg) rotateY(-5deg) translateY(-6px);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -14px 24px rgba(0,0,0,.18),0 10px 0 var(--bdp),0 46px 50px -24px rgba(22,35,58,.75)}
+.bag .body:before{content:"";position:absolute;inset:10px;border:1.6px dashed var(--bs);border-radius:12px;pointer-events:none;z-index:1}
+.bag .gloss{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(118deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.12) 22%,rgba(255,255,255,0) 40%)}
+.bag .gloss:after{content:"";position:absolute;top:-40%;bottom:-40%;width:30%;left:-60%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .9s ease}
+.bag:hover .gloss:after{left:130%}
+.bag .flap{position:absolute;top:0;left:0;right:0;height:66px;border-radius:18px 18px 28px 28px;background:linear-gradient(180deg,var(--bl),var(--bf));box-shadow:0 6px 10px -4px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.45);z-index:1}
+.bag .clasp{position:absolute;top:50px;left:50%;transform:translateX(-50%);width:42px;height:30px;border-radius:8px;display:grid;place-items:center;z-index:3;
+  background:linear-gradient(180deg,#FFF3C4 0%,#E8C559 45%,#B98F26 100%);box-shadow:0 3px 0 #8A6A16,inset 0 1px 0 rgba(255,255,255,.8)}
+.bag .clasp svg{width:16px;height:16px;fill:none;stroke:#5B4510;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.bag h2{position:relative;z-index:2;font-family:var(--ui);font-size:24px;margin:50px 0 4px;line-height:1.3}
+.bag h2 small{display:block;font-size:13px;font-weight:500;opacity:.75;letter-spacing:0}
+.bag .tag{position:relative;z-index:2;display:inline-block;font-family:var(--ui);font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--bk);color:var(--bc);margin-bottom:10px}
+.bag p,.bag ul{position:relative;z-index:2}
+.bag p{margin:0 0 10px;font-size:15px;line-height:1.75}
+.bag ul{margin:0;padding-inline-start:18px;font-size:14.5px;line-height:1.75}
+.bag .go{position:relative;z-index:2;margin-top:16px;font-family:var(--ui);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center;background:var(--bk);color:var(--bc);padding:9px 16px;border-radius:9px;align-self:flex-start;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.b1{--bc:#F7DC4A;--bl:#FFF0A0;--bdk:#E3BF22;--bdp:#B8961A;--bt:#16233A;--bf:#F2D23A;--bs:rgba(22,35,58,.32);--bk:#16233A;--bk2:#C9A41E}
+.b2{--bc:#2F62D0;--bl:#5C8BEA;--bdk:#2350B0;--bdp:#1A3D88;--bt:#FFFFFF;--bf:#2C5BC4;--bs:rgba(255,255,255,.45);--bk:#FFFFFF;--bk2:#1F489E}
+.b3{--bc:#1E2E4A;--bl:#3A4F74;--bdk:#121D30;--bdp:#0A1220;--bt:#FFFFFF;--bf:#18263E;--bs:rgba(247,220,74,.5);--bk:#F7DC4A;--bk2:#0F1A2C}
+.locked .body:after{content:"";position:absolute;inset:0;border-radius:18px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.05) 14px 28px);pointer-events:none;z-index:1}
+/* papers spilling out */
+.papers{position:absolute;top:58px;left:50%;width:0;height:0;z-index:4;pointer-events:none}
+.pp{position:absolute;left:-38px;top:0;width:76px;height:92px;padding:30px 4px 0;background:#fff;border:1px solid #D5DDE0;border-radius:4px;
+  box-shadow:0 6px 12px -6px rgba(22,35,58,.45);font-family:var(--ui);font-size:12px;font-weight:600;color:#16233A;text-align:center;line-height:1.3;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 9px,#E7ECEE 9px 10px);background-size:100% 60%;background-position:0 100%;background-repeat:no-repeat;opacity:0}
+.pp:before{content:"";position:absolute;top:8px;left:14px;right:14px;height:10px;border-radius:2px;background:var(--bc)}
+.bag.spill .pp{animation:spill 2.4s cubic-bezier(.25,.7,.3,1) forwards;animation-delay:calc(var(--i)*.12s)}
+.pp:nth-child(1){--x:-150px;--r:-24deg}.pp:nth-child(2){--x:-75px;--r:-10deg}.pp:nth-child(3){--x:0px;--r:6deg}.pp:nth-child(4){--x:75px;--r:16deg}.pp:nth-child(5){--x:150px;--r:28deg}
+@keyframes spill{0%{opacity:0;transform:translate(0,40px) scale(.5) rotate(0)}18%{opacity:1;transform:translate(calc(var(--x)*.35),-110px) scale(.95) rotate(calc(var(--r)*.4))}
+  70%{opacity:1;transform:translate(var(--x),250px) scale(1) rotate(var(--r))}100%{opacity:0;transform:translate(calc(var(--x)*1.1),330px) scale(1) rotate(calc(var(--r)*1.3))}}
+@media (prefers-reduced-motion:reduce){.bag.spill .pp{animation:none}.bag .body{transform:none}}
+.portal .center{overflow-x:clip}
+@media (max-width:700px){.pp:nth-child(1){--x:-110px}.pp:nth-child(2){--x:-55px}.pp:nth-child(4){--x:55px}.pp:nth-child(5){--x:110px}}
 .bagmore{margin-top:22px;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:16px 20px;display:none}
 .bagmore.on{display:block}
 .crumb{font-family:var(--ui);font-size:14px;padding:14px 0 0;color:var(--ink-3)}
@@ -301,47 +322,47 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
     </aside>
     <div class="center">
       <div class="bags">
-        <a class="bag b1" href="#bag-launch" aria-label="افتح حقيبة الانطلاق">
-          <span class="handle"></span>
-          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span>
-            <h2>حقيبة الانطلاق</h2><span class="tag">مفتوحة · مجانية</span>
+        <a class="bag b1" href="#bag-launch" aria-label="افتح حقيبة دقائق الانطلاق">
+          <span class="handle"></span><span class="papers" aria-hidden="true"><span class="pp" style="--i:0">إنفوغراف</span><span class="pp" style="--i:1">عرض</span><span class="pp" style="--i:2">كويز</span><span class="pp" style="--i:3">لعبة</span><span class="pp" style="--i:4">مقطع</span></span>
+          <span class="body"><span class="gloss"></span><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span>
+            <h2><small>حقيبة</small>دقائق الانطلاق</h2><span class="tag">مفتوحة · مجانية</span>
             <p>من الصفر إلى أول حقيبة درس، ببرومبت واحد ونموذج مجاني واحد.</p>
             <ul><li>تحدي البرومبت الواحد</li><li>قوالب مخصصة للعلوم والرياضيات والإنجليزية</li><li>المهام الست بمساراتها</li><li>المراجعة والأخطاء الشائعة</li><li>شارة الإنجاز</li></ul>
             <span class="go">افتح الحقيبة</span></span>
         </a>
         <button type="button" class="bag b2 locked" data-more="m2" aria-expanded="false">
-          <span class="handle"></span>
-          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
-            <h2>حقيبة التمكّن</h2><span class="tag">قيد الإعداد</span>
+          <span class="handle"></span><span class="papers" aria-hidden="true"><span class="pp" style="--i:0">معمل</span><span class="pp" style="--i:1">لعبة متقدمة</span><span class="pp" style="--i:2">سبورة</span><span class="pp" style="--i:3">تقييم</span><span class="pp" style="--i:4">تحليل</span></span>
+          <span class="body"><span class="gloss"></span><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+            <h2><small>حقيبة</small>دقائق التمكّن</h2><span class="tag">قيد الإعداد</span>
             <p>من المنتج المنفرد إلى أدوات تفاعلية متقدمة.</p>
             <ul><li>المعامل الافتراضية</li><li>الألعاب التفاعلية المتقدمة</li><li>رسوم السبورة المتحركة بقوالب Claude Design</li><li>نماذج تقييم الطلاب وتحليل أدائهم</li></ul>
             <span class="go">ماذا ستجد فيها؟</span></span>
         </button>
         <button type="button" class="bag b3 locked" data-more="m3" aria-expanded="false">
-          <span class="handle"></span>
-          <span class="body"><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
-            <h2>حقيبة القمة</h2><span class="tag">قيد الإعداد</span>
+          <span class="handle"></span><span class="papers" aria-hidden="true"><span class="pp" style="--i:0">مسار</span><span class="pp" style="--i:1">مساعد</span><span class="pp" style="--i:2">جودة</span><span class="pp" style="--i:3">زملاء</span><span class="pp" style="--i:4">أثر</span></span>
+          <span class="body"><span class="gloss"></span><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+            <h2><small>حقيبة</small>دقائق القمة</h2><span class="tag">قيد الإعداد</span>
             <p>من الاستخدام الفردي إلى قيادة الممارسة في مدرستك.</p>
             <ul><li>مسارات تعليمية متكاملة</li><li>مساعدون مخصصون لمادتك</li><li>معايير جودة وأمان، وتدريب الزملاء</li></ul>
             <span class="go">ماذا ستجد فيها؟</span></span>
         </button>
       </div>
       <div class="vidbox hide" id="homeTour" style="margin-top:30px"></div>
-      <div class="bagmore" id="m2"><b style="font-family:var(--ui)">حقيبة التمكّن</b><p style="margin:6px 0 12px">تُفتح بعد اكتمال إعدادها. شرط الالتحاق: اجتياز حقيبة الانطلاق، وحساب مدفوع في نموذج واحد على الأقل يتيح رفع الملفات وتوليد الصور وإخراجًا طويلًا. يكفي إقرارك بذلك.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a></div>
-      <div class="bagmore" id="m3"><b style="font-family:var(--ui)">حقيبة القمة</b><p style="margin:6px 0 12px">للمعلم الذي يريد قيادة التحول في مدرسته: تصميم مسارات كاملة، وبناء مساعدين مخصصين، ووضع معايير الجودة والأمان، وتدريب زملائه وقياس الأثر. المحتوى قيد التصميم.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a> <a class="btn alt" data-inst target="_blank" rel="noopener" style="text-decoration:none">للمدارس والمؤسسات</a></div>
+      <div class="bagmore" id="m2"><b style="font-family:var(--ui)">حقيبة دقائق التمكّن</b><p style="margin:6px 0 12px">تُفتح بعد اكتمال إعدادها. شرط الالتحاق: اجتياز حقيبة دقائق الانطلاق، وحساب مدفوع في نموذج واحد على الأقل يتيح رفع الملفات وتوليد الصور وإخراجًا طويلًا. يكفي إقرارك بذلك.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a></div>
+      <div class="bagmore" id="m3"><b style="font-family:var(--ui)">حقيبة دقائق القمة</b><p style="margin:6px 0 12px">للمعلم الذي يريد قيادة التحول في مدرسته: تصميم مسارات كاملة، وبناء مساعدين مخصصين، ووضع معايير الجودة والأمان، وتدريب زملائه وقياس الأثر. المحتوى قيد التصميم.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a> <a class="btn alt" data-inst target="_blank" rel="noopener" style="text-decoration:none">للمدارس والمؤسسات</a></div>
     </div>
     <aside class="side" aria-label="روابط">
-      <div class="box"><h3>ابدأ من هنا</h3>افتح حقيبة الانطلاق، واختر مادتك، وانسخ برومبتك الأول. أول وسيلة تأخذ عادة أقل من جلسة واحدة.</div>
+      <div class="box"><h3>ابدأ من هنا</h3>افتح حقيبة دقائق الانطلاق، واختر مادتك، وانسخ برومبتك الأول. أول وسيلة تأخذ عادة أقل من جلسة واحدة.</div>
       <div class="box"><h3>النماذج المستخدمة</h3><ul><li><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a></li><li><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></li><li><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></li><li><a href="https://chat.deepseek.com" target="_blank" rel="noopener">DeepSeek</a></li><li><a href="https://grok.com" target="_blank" rel="noopener">Grok</a></li></ul></div>
       <div class="box"><h3>شروحات الفيديو</h3>شروحات كل مهمة على <a href="https://youtube.com/@-mmss" target="_blank" rel="noopener">قناة المدرب</a>.</div>
-      <div class="box"><h3>آخر التحديثات</h3><small>نوفمبر 2026</small><br>إطلاق تجريبي لحقيبة الانطلاق، مع قوالب مخصصة للعلوم والرياضيات والإنجليزية، ومهمة السبورة المتحركة.</div>
+      <div class="box"><h3>آخر التحديثات</h3><small>نوفمبر 2026</small><br>إطلاق تجريبي لحقيبة دقائق الانطلاق، مع قوالب مخصصة للعلوم والرياضيات والإنجليزية، ومهمة السبورة المتحركة.</div>
     </aside>
   </div>
 </div>
 </main>
 
 <main id="bag-launch" class="view hide">
-<div class="wrap crumb"><a href="#home">الحقائب</a> ‹ حقيبة الانطلاق</div>
+<div class="wrap crumb"><a href="#home">الحقائب</a> ‹ حقيبة دقائق الانطلاق</div>
 <div id="top"></div>
 <!-- HERO -->
 <section class="hero">
@@ -709,7 +730,7 @@ const TASKS = {
     extra:'grok'},
   board:{t:'سبورة متحركة',get:'مقطع شرح بأسلوب السبورة البيضاء: رسوم تُرسم أمام الطالب خطًّا خطًّا، مع نص التعليق الصوتي بتوقيتاته.',
     ex:'claude',rv:'gemini',fb:'gemini',
-    why:'Claude يعرض الحركة معاينةً مباشرة ويعدّلها بسرعة، وGemini Canvas بديل مجاني. أما قوالب Claude Design الجاهزة للرسوم المتحركة فتتطلب حسابًا مدفوعًا، ولذلك مكانها حقيبة التمكّن.',
+    why:'Claude يعرض الحركة معاينةً مباشرة ويعدّلها بسرعة، وGemini Canvas بديل مجاني. أما قوالب Claude Design الجاهزة للرسوم المتحركة فتتطلب حسابًا مدفوعًا، ولذلك مكانها حقيبة دقائق التمكّن.',
     steps:['اختر «سبورة متحركة» في تحدي البرومبت الواحد وانسخ الأمر.','في Claude ستظهر الحركة جاهزة بجانب المحادثة. اطلب «عدّل: …» لتغيير الرسم أو السرعة أو المقاس.','لتحويلها إلى فيديو: شغّلها بملء الشاشة وسجّل الشاشة (ويندوز: Win+Alt+R، آيفون: تسجيل الشاشة من مركز التحكم).','ولّد التعليق الصوتي من النص المرفق، ثم اجمع الصوت والفيديو في Canva أو CapCut.'],
     spec:'سبورة متحركة (HTML): مقطع شرح بأسلوب السبورة البيضاء مدته من 60 إلى 90 ثانية، من 5 إلى 7 مشاهد تتتابع تلقائيًا. في كل مشهد رسم SVG بخطوط داكنة بسيطة يُرسم تدريجيًا كأن يدًا تخطّه (بتحريك stroke-dashoffset)، وعنوان عربي قصير يظهر بعده، وأيقونة يد SVG بسيطة تتبع رأس الخط. خلفية بيضاء نظيفة بلا زخارف. أضف أزرارًا: تشغيل وإيقاف، وإعادة، وإظهار اليد أو إخفاؤها، وإظهار الترجمة أو إخفاؤها، والتبديل بين المقاسين 16:9 و9:16. الترجمة تعرض جملة التعليق الصوتي لكل مشهد في توقيتها. بعد الكود اكتب نص التعليق الصوتي كاملًا، كل جملة مع توقيتها (مثل 00:05–00:12)، بحيث يطابق مدة كل مشهد.'}
 };
@@ -1065,6 +1086,9 @@ document.querySelectorAll('.bag[data-more]').forEach(b=>b.addEventListener('clic
   document.querySelectorAll('.bag[data-more]').forEach(x=>x.setAttribute('aria-expanded','false'));
   if(on){el.classList.add('on');b.setAttribute('aria-expanded','true');el.scrollIntoView({behavior:'smooth',block:'nearest'})}
 }));
+document.querySelectorAll('.bag').forEach(b=>{const go=()=>{b.classList.remove('spill');void b.offsetWidth;b.classList.add('spill')};
+  b.addEventListener('mouseenter',go);b.addEventListener('focus',go)});
+setTimeout(()=>{const b=document.querySelector('.bag.b1');if(b&&!document.getElementById('home').classList.contains('hide'))b.classList.add('spill')},700);
 const HOME=['','home','about'];
 function route(){
   const h=decodeURIComponent(location.hash.slice(1));
