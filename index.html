@@ -239,6 +239,7 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
 @media (min-width:701px) and (max-width:1180px){.bags{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:640px){.who{display:none}}
 @media (max-width:900px){
+  #tplGrid{grid-template-columns:1fr!important}
   .show{grid-template-columns:1fr}
   .hero .wrap,.builder,.task,.two,.prog,.next,.errs{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
@@ -271,6 +272,7 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
     <nav class="nav" id="bagnav" aria-label="أقسام الحقيبة">
       <a href="#start">ابدأ</a>
       <a href="#challenge">تحدي البرومبت الواحد</a>
+      <a href="#templates">القوالب</a>
       <a href="#tasks">المهام</a>
       <a href="#showcase" id="navShow" class="hide">شاهد أعمالنا</a>
       <a href="#master">أنا أتقن</a>
@@ -458,6 +460,15 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
       <textarea id="stateCard" rows="3" placeholder="---حالة--- …"></textarea>
       <p><button class="btn" id="copyResume" type="button">انسخ أمر الاستئناف</button></p>
     </details>
+  </div>
+</section>
+
+<!-- TEMPLATES LIBRARY -->
+<section class="blk" id="templates">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic"><svg><use href="#i-grid"/></svg></span><span>مكتبة القوالب</span></h2>
+    <p class="sub">برومبت الحقيبة الكاملة جاهزًا لكل مادة. انسخه كما هو واملأ الأقواس [ ]، أو حمّله لتحتفظ به. ولتعبئة الأقواس تلقائيًا استخدم المولّد في الأعلى.</p>
+    <div class="next" style="grid-template-columns:repeat(3,1fr)" id="tplGrid"></div>
   </div>
 </section>
 
@@ -1032,6 +1043,17 @@ $('saveBadge').addEventListener('click',async()=>{
 });
 (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{renderProg()});
 render(); renderProg();
+
+/* ===== Templates library ===== */
+const TPL=[['sci','العلوم','القالب الأساسي: مخطط للعملية أو التركيب، «توقّع ثم لاحظ»، تنبيهات السلامة، والمفاهيم البديلة.','prompts/master_prompt_v2_science.md'],
+ ['math','الرياضيات','بطاقة قاعدة، وأمثلة تظهر خطواتها بالنقر، وكويز يحسب إجاباته بالكود، ومولّد تدريب لا ينتهي.','prompts/master_prompt_v2_math.md'],
+ ['en','اللغة الإنجليزية','ملصق مفردات بزر نطق، وعرض PPP، وكويز مفردات وقواعد وفهم، ولعبة لغوية، وحوار قصير.','prompts/master_prompt_v2_english.md']];
+$('tplGrid').innerHTML=TPL.map(([k,n,d,file])=>`<div class="card"><h3>${n}</h3><p class="note" style="margin:0 0 14px">${d}</p>
+ <p style="display:flex;gap:8px;flex-wrap:wrap;margin:0"><button class="btn" type="button" data-tpl="${k}" data-v="full">انسخ الكامل</button>
+ <button class="btn alt" type="button" data-tpl="${k}" data-v="short">انسخ المختصر</button>
+ <a class="btn alt" href="${file}" download style="text-decoration:none;line-height:1.4">حمّل الملف</a></p></div>`).join('');
+$('tplGrid').addEventListener('click',e=>{const b=e.target.closest('[data-tpl]');if(!b)return;
+  const f={field:b.dataset.tpl,subj:'',grade:'',title:'',mins:45};copy(promptAll(f,b.dataset.v==='short'))});
 /* ===== Views ===== */
 $('aboutRole').textContent=CONFIG.trainerRole;
 document.querySelectorAll('[data-pre]').forEach(a=>a.href=CONFIG.forms.preregister||CONFIG.channel);
