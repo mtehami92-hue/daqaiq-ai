@@ -271,6 +271,55 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
   .hero{padding-top:34px}
   body{font-size:17px}
 }
+/* ---- v0.9 mobile & map ---- */
+main.view{scroll-margin-top:72px}
+#promptOut{scroll-margin-top:80px}
+.nav a.on{background:var(--mark-soft);color:var(--ink)}
+.start-box .btn,.side .box>.btn{display:block;text-align:center;text-decoration:none;margin-top:12px;padding:11px 14px}
+.tplbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
+.tplbtns .btn{text-align:center;text-decoration:none;line-height:1.4;padding:10px 12px}
+.tplbtns a.btn:last-child:nth-child(3){grid-column:1/-1}
+.mapimg{display:block;margin:6px 0 16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.mapimg img{display:block;width:100%;height:auto}
+.btn.pulse{animation:pulse 1.4s ease-in-out 4;box-shadow:0 0 0 0 rgba(247,220,74,.9)}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(247,220,74,.0),0 0 0 4px var(--mark)}}
+.crumb a{display:inline-block;padding:10px 6px 10px 0;margin:-10px 0}
+@media (max-width:900px){
+  .bar .wrap{flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:6px;row-gap:4px}
+  .nav{order:3;flex:1 0 100%;margin:0 -20px;padding:2px 20px 4px;
+    -webkit-mask-image:linear-gradient(to left,#000 85%,transparent);mask-image:linear-gradient(to left,#000 85%,transparent)}
+  .nav a{padding:10px 12px}
+  #bagnav[style*="hidden"]{display:none}
+  section.blk,#promptOut{scroll-margin-top:118px}
+  .route td a,.side li a{display:inline-block;padding:10px 0}
+  .btn,.seg button,#tabs button{min-height:44px}
+  .show{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none}
+  .show::-webkit-scrollbar{display:none}
+  .show figure{flex:0 0 84%;scroll-snap-align:center}
+}
+@media (max-width:700px){
+  .home-head{padding-top:30px}
+  .bags{gap:10px}
+  .bag{padding-top:26px}
+  .bag .handle{height:38px;border-width:8px}
+  .bag .body{min-height:0;padding:26px 18px 20px}
+  .bag .flap{height:54px}.bag .clasp{top:40px}
+  .bag h2{margin-top:40px;font-size:22px}
+  .bag p{font-size:14.5px;margin-bottom:6px}
+  .bag ul{font-size:14px;line-height:1.65}
+  .bag.locked h2{font-size:20px;margin-top:38px}
+  .bag.locked ul{font-size:13.5px}
+  .bag .go{padding:11px 16px}
+  .b1 .go{margin-top:22px}
+  /* papers fan out in the empty space beside the button, never over the text */
+  .b1 .papers{top:auto;bottom:100px;left:30%}
+  .b1 .pp{width:50px;height:62px;left:-25px;padding-top:22px;font-size:9.5px}
+  .b1 .pp:before{top:6px;left:9px;right:9px;height:7px}
+  .b1.spill .pp{animation-name:fan;animation-duration:1.1s}
+  .b1 .pp:nth-child(1){--x:-62px;--r:-16deg}.b1 .pp:nth-child(2){--x:-31px;--r:-8deg}.b1 .pp:nth-child(3){--x:0px;--r:0deg}.b1 .pp:nth-child(4){--x:31px;--r:8deg}.b1 .pp:nth-child(5){--x:62px;--r:16deg}
+  .locked .papers{display:none}
+}
+@keyframes fan{0%{opacity:0;transform:translate(0,30px) scale(.6) rotate(0)}100%{opacity:1;transform:translate(var(--x),0) scale(1) rotate(var(--r))}}
 </style>
 </head>
 <body>
@@ -294,6 +343,7 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
       <a href="#start">ابدأ</a>
       <a href="#challenge">تحدي البرومبت الواحد</a>
       <a href="#templates">القوالب</a>
+      <a href="#map">خريطة الحقيبة</a>
       <a href="#tasks">المهام</a>
       <a href="#showcase" id="navShow" class="hide">شاهد أعمالنا</a>
       <a href="#master">أنا أتقن</a>
@@ -352,10 +402,11 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
       <div class="bagmore" id="m3"><b style="font-family:var(--ui)">حقيبة دقائق القمة</b><p style="margin:6px 0 12px">للمعلم الذي يريد قيادة التحول في مدرسته: تصميم مسارات كاملة، وبناء مساعدين مخصصين، ووضع معايير الجودة والأمان، وتدريب زملائه وقياس الأثر. المحتوى قيد التصميم.</p><a class="btn" data-pre target="_blank" rel="noopener" style="text-decoration:none">سجّل اهتمامك</a> <a class="btn alt" data-inst target="_blank" rel="noopener" style="text-decoration:none">للمدارس والمؤسسات</a></div>
     </div>
     <aside class="side" aria-label="روابط">
-      <div class="box"><h3>ابدأ من هنا</h3>افتح حقيبة دقائق الانطلاق، واختر مادتك، وانسخ برومبتك الأول. أول وسيلة تأخذ عادة أقل من جلسة واحدة.</div>
+      <div class="box start-box"><h3>ابدأ من هنا</h3>افتح حقيبة دقائق الانطلاق، واختر مادتك، وانسخ برومبتك الأول. أول وسيلة تأخذ عادة أقل من جلسة واحدة.<a class="btn" href="#challenge">ابدأ تحدي البرومبت الواحد</a></div>
+      <div class="box"><h3>خريطة الحقيبة في صورة</h3>كل المواد والمهام الست في جدول واحد: البرومبت، والنموذج المناسب، ورابط نسخه.<a class="btn alt" href="#map">اعرض الخريطة</a></div>
       <div class="box"><h3>النماذج المستخدمة</h3><ul><li><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a></li><li><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></li><li><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></li><li><a href="https://chat.deepseek.com" target="_blank" rel="noopener">DeepSeek</a></li><li><a href="https://grok.com" target="_blank" rel="noopener">Grok</a></li></ul></div>
       <div class="box"><h3>شروحات الفيديو</h3>شروحات كل مهمة على <a href="https://youtube.com/@-mmss" target="_blank" rel="noopener">قناة المدرب</a>.</div>
-      <div class="box"><h3>آخر التحديثات</h3><small>نوفمبر 2026</small><br>إطلاق تجريبي لحقيبة دقائق الانطلاق، مع قوالب مخصصة للعلوم والرياضيات والإنجليزية، ومهمة السبورة المتحركة.</div>
+      <div class="box"><h3>آخر التحديثات</h3><small>نوفمبر 2026</small><br>إطلاق تجريبي لحقيبة دقائق الانطلاق، مع قوالب مخصصة للعلوم والرياضيات والإنجليزية، ومهمة السبورة المتحركة، وخريطة الحقيبة في صورة واحدة.</div>
     </aside>
   </div>
 </div>
@@ -448,7 +499,7 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
         <p class="note" id="recNote"></p>
       </div>
       <div>
-        <div class="prompt-out">
+        <div class="prompt-out" id="promptOut">
           <div class="head"><span id="outLbl">الأمر الجاهز</span><span><button class="btn" id="copyMain" type="button">انسخ الأمر</button> <a class="btn alt" id="openRec" href="https://gemini.google.com" target="_blank" rel="noopener" style="text-decoration:none">افتح Gemini</a></span></div>
           <pre id="promptMain" tabindex="0"></pre>
         </div>
@@ -494,6 +545,17 @@ footer{padding:40px 0 60px;border-top:1px solid var(--line);font-family:var(--ui
 </section>
 
 <!-- TASKS -->
+<!-- MAP -->
+<section class="blk" id="map">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic"><svg><use href="#i-grid"/></svg></span><span>خريطة الحقيبة في صورة واحدة</span></h2>
+    <p class="sub">المواد في الصفوف والمهام الست في الأعمدة. في كل خانة: برومبت مختصر، والنموذج المناسب، ورابط يفتح البرومبت الكامل هنا جاهزًا للنسخ. احفظها أو شاركها كما هي مع ذكر المصدر.</p>
+    <a class="mapimg" href="assets/daqaiq-map-v1.png" target="_blank" rel="noopener"><img src="assets/daqaiq-map-v1-preview.jpg" alt="خريطة حقيبة دقائق الانطلاق: المواد والمهام الست مع البرومبت والنموذج المناسب ورابط النسخ" loading="lazy"></a>
+    <p class="tplbtns" style="max-width:560px"><a class="btn" href="assets/daqaiq-map-v1.png" download>حمّل الصورة PNG</a><a class="btn alt" href="assets/daqaiq-map-v1.pdf" download>حمّل PDF بروابط قابلة للنقر</a></p>
+    <p class="note">© 2026 أ. محمد التهامي — منصة دقائق AI. مرخّصة بـ CC BY-NC-ND 4.0: يُسمح بمشاركتها كما هي مع ذكر المصدر، ويُمنع تعديلها أو إعادة إنتاجها أو استخدامها تجاريًا.</p>
+  </div>
+</section>
+
 <section class="blk" id="tasks">
   <div class="wrap">
     <h2 class="h2i"><span class="ic "><svg><use href="#i-grid"/></svg></span><span>المهام الست، كلٌّ بمسارها</span></h2>
@@ -933,7 +995,7 @@ function seg(id,attr,key){
   });
 }
 seg('mode','m','mode'); seg('ver','v','ver');
-$('copyMain').addEventListener('click',()=>{copy($('promptMain').textContent);if(!S.t0){startTimer()}});
+$('copyMain').addEventListener('click',()=>{$('copyMain').classList.remove('pulse');copy($('promptMain').textContent);if(!S.t0){startTimer()}});
 $('copyResume').addEventListener('click',()=>copy(resume($('srcCard').value,$('stateCard').value)));
 
 /* ===== Timer ===== */
@@ -1070,9 +1132,9 @@ const TPL=[['sci','العلوم','القالب الأساسي: مخطط للعم
  ['math','الرياضيات','بطاقة قاعدة، وأمثلة تظهر خطواتها بالنقر، وكويز يحسب إجاباته بالكود، ومولّد تدريب لا ينتهي.','prompts/master_prompt_v2_math.md'],
  ['en','اللغة الإنجليزية','ملصق مفردات بزر نطق، وعرض PPP، وكويز مفردات وقواعد وفهم، ولعبة لغوية، وحوار قصير.','prompts/master_prompt_v2_english.md']];
 $('tplGrid').innerHTML=TPL.map(([k,n,d,file])=>`<div class="card"><h3>${n}</h3><p class="note" style="margin:0 0 14px">${d}</p>
- <p style="display:flex;gap:8px;flex-wrap:wrap;margin:0"><button class="btn" type="button" data-tpl="${k}" data-v="full">انسخ الكامل</button>
+ <p class="tplbtns"><button class="btn" type="button" data-tpl="${k}" data-v="full">انسخ الكامل</button>
  <button class="btn alt" type="button" data-tpl="${k}" data-v="short">انسخ المختصر</button>
- <a class="btn alt" href="${file}" download style="text-decoration:none;line-height:1.4">حمّل الملف</a></p></div>`).join('');
+ <a class="btn alt" href="${file}" download>حمّل الملف</a></p></div>`).join('');
 $('tplGrid').addEventListener('click',e=>{const b=e.target.closest('[data-tpl]');if(!b)return;
   const f={field:b.dataset.tpl,subj:'',grade:'',title:'',mins:45};copy(promptAll(f,b.dataset.v==='short'))});
 /* ===== Views ===== */
@@ -1090,8 +1152,21 @@ document.querySelectorAll('.bag').forEach(b=>{const go=()=>{b.classList.remove('
   b.addEventListener('mouseenter',go);b.addEventListener('focus',go)});
 setTimeout(()=>{const b=document.querySelector('.bag.b1');if(b&&!document.getElementById('home').classList.contains('hide'))b.classList.add('spill')},700);
 const HOME=['','home','about'];
+function deep(h){ /* #p/<subject>/<task|all>[/s] — opens a ready prompt */
+  const [,sj,tk,vr]=h.split('/');
+  if(!SUBJECTS[sj]||!(tk==='all'||TASKS[tk])) return false;
+  S.f.field=sj; fs.value=sj; S.mode=tk; S.ver=vr==='s'?'short':'full';
+  document.querySelectorAll('#mode button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.m===S.mode)));
+  document.querySelectorAll('#ver button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.v===S.ver)));
+  render();
+  $('home').classList.add('hide'); $('bag-launch').classList.remove('hide'); $('bagnav').style.visibility='visible';
+  requestAnimationFrame(()=>{$('promptOut').scrollIntoView({block:'start'});$('copyMain').classList.add('pulse')});
+  toast('جهّزنا أمر '+(tk==='all'?'الحقيبة كاملة':TASKS[tk].t)+' لمادة '+SUBJECTS[sj].n+'. أكمل بيانات درسك ثم انسخه.');
+  return true;
+}
 function route(){
   const h=decodeURIComponent(location.hash.slice(1));
+  if(h.startsWith('p/')&&deep(h)) return;
   const inHome=HOME.includes(h);
   $('home').classList.toggle('hide',!inHome);
   $('bag-launch').classList.toggle('hide',inHome);
@@ -1101,6 +1176,12 @@ function route(){
   const t=document.getElementById(h); if(t) requestAnimationFrame(()=>t.scrollIntoView());
 }
 addEventListener('hashchange',route); route();
+/* highlight the section in view in the bag nav */
+const navLinks=[...document.querySelectorAll('#bagnav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+  navLinks.forEach(a=>{const on=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('on',on);
+    if(on&&innerWidth<=900){const n=a.parentNode;n.scrollTo({left:a.offsetLeft-n.clientWidth/2+a.offsetWidth/2,behavior:'smooth'})}})}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('#bag-launch section[id]').forEach(x=>io.observe(x));
 </script>
 </body>
 </html>
