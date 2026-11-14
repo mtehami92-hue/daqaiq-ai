@@ -972,9 +972,10 @@ ${v(state,'[ألصقها]')}
 }
 
 /* ===== Builder ===== */
+const SIGN='\n\n— برومبت من منصة دقائق AI (أ. محمد التهامي): https://mtehami92-hue.github.io/daqaiq-ai/';
 function render(){
   const f=S.f, m=S.mode, short=S.ver==='short';
-  $('promptMain').textContent = m==='all'?promptAll(f,short):promptOne(m,f,short);
+  $('promptMain').textContent = (m==='all'?promptAll(f,short):promptOne(m,f,short))+SIGN;
   const ex = m==='all'?'gemini':TASKS[m].ex;
   const M=MODELS[ex];
   $('openRec').textContent='افتح '+M.n; $('openRec').href=M.u;
@@ -1136,7 +1137,7 @@ $('tplGrid').innerHTML=TPL.map(([k,n,d,file])=>`<div class="card"><h3>${n}</h3><
  <button class="btn alt" type="button" data-tpl="${k}" data-v="short">انسخ المختصر</button>
  <a class="btn alt" href="${file}" download>حمّل الملف</a></p></div>`).join('');
 $('tplGrid').addEventListener('click',e=>{const b=e.target.closest('[data-tpl]');if(!b)return;
-  const f={field:b.dataset.tpl,subj:'',grade:'',title:'',mins:45};copy(promptAll(f,b.dataset.v==='short'))});
+  const f={field:b.dataset.tpl,subj:'',grade:'',title:'',mins:45};copy(promptAll(f,b.dataset.v==='short')+SIGN)});
 /* ===== Views ===== */
 $('aboutRole').textContent=CONFIG.trainerRole;
 document.querySelectorAll('[data-pre]').forEach(a=>a.href=CONFIG.forms.preregister||CONFIG.channel);
