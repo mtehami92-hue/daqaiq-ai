@@ -320,6 +320,14 @@ main.view{scroll-margin-top:72px}
   .locked .papers{display:none}
 }
 @keyframes fan{0%{opacity:0;transform:translate(0,30px) scale(.6) rotate(0)}100%{opacity:1;transform:translate(var(--x),0) scale(1) rotate(var(--r))}}
+#codeList .cg{margin:18px 0 6px}
+#codeList h3{display:inline-block;margin:0 0 10px;background:var(--c);color:#fff;border-radius:10px;padding:4px 14px;font-size:17px}
+#codeList .cl{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+#codeList button{all:unset;cursor:pointer;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-height:44px;box-sizing:border-box}
+#codeList button:hover,#codeList button:focus-visible{outline:2px solid var(--c);outline-offset:1px}
+#codeList code{direction:ltr;text-align:left;font-family:'Readex Pro',sans-serif;font-weight:700;color:var(--c);font-size:15px}
+#codeList span{font-size:14px;font-weight:600}#codeList small{font-size:12.5px;color:var(--muted,#5A6A80)}
+@media (max-width:700px){#codeList .cl{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -343,6 +351,7 @@ main.view{scroll-margin-top:72px}
       <a href="#start">ابدأ</a>
       <a href="#challenge">تحدي البرومبت الواحد</a>
       <a href="#templates">القوالب</a>
+      <a href="#codes">أكواد الصور</a>
       <a href="#map">خريطة الحقيبة</a>
       <a href="#tasks">المهام</a>
       <a href="#showcase" id="navShow" class="hide">شاهد أعمالنا</a>
@@ -377,7 +386,7 @@ main.view{scroll-margin-top:72px}
           <span class="body"><span class="gloss"></span><span class="flap"></span><span class="clasp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span>
             <h2><small>حقيبة</small>دقائق الانطلاق</h2><span class="tag">مفتوحة · مجانية</span>
             <p>من الصفر إلى أول حقيبة درس، ببرومبت واحد ونموذج مجاني واحد.</p>
-            <ul><li>تحدي البرومبت الواحد</li><li>قوالب مخصصة للعلوم والرياضيات والإنجليزية</li><li>المهام الست بمساراتها</li><li>المراجعة والأخطاء الشائعة</li><li>شارة الإنجاز</li></ul>
+            <ul><li>تحدي البرومبت الواحد</li><li>قوالب مخصصة للعلوم والرياضيات والإنجليزية</li><li>المهام الست بمساراتها</li><li>خريطة الحقيبة و50 كودًا للصور</li><li>المراجعة والأخطاء الشائعة</li><li>شارة الإنجاز</li></ul>
             <span class="go">افتح الحقيبة</span></span>
         </a>
         <button type="button" class="bag b2 locked" data-more="m2" aria-expanded="false">
@@ -545,6 +554,19 @@ main.view{scroll-margin-top:72px}
 </section>
 
 <!-- TASKS -->
+<!-- CODES -->
+<section class="blk" id="codes">
+  <div class="wrap">
+    <h2 class="h2i"><span class="ic"><svg><use href="#i-grid"/></svg></span><span>أكواد الصور التعليمية</span></h2>
+    <p class="sub">بادئة إنجليزية قصيرة تكتبها قبل موضوع درسك فيفهم النموذج <b>شكل</b> الصورة: إنفوغراف، تشريح، خط زمني، مقطع عرضي… المس أي كود لنسخه، ثم أكمل: <bdi dir="ltr"><b>/الكود</b></bdi> + موضوع الدرس + الصف واللغة، وارفع صورة صفحة الكتاب.</p>
+    <p class="note"><b>بأمانة:</b> هذه ليست أوامر سرية؛ الشرطة «/» لا تفعّل شيئًا بذاتها، والكود وصف مختصر يفهمه أي نموذج يولّد الصور (ChatGPT وGemini وغيرهما) بحساب مجاني وحدود يومية. راجع المعلومة والنص العربي داخل الصورة دائمًا.</p>
+    <div id="codeList"></div>
+    <a class="mapimg" href="assets/daqaiq-codes-v1.png" target="_blank" rel="noopener"><img src="assets/daqaiq-codes-v1-preview.jpg" alt="إنفوغراف أكواد الصور التعليمية من دقائق AI: 50 كودًا في ست مجموعات مع شرح عربي ومثال صفّي لكل كود" loading="lazy"></a>
+    <p class="tplbtns" style="max-width:560px"><a class="btn" href="assets/daqaiq-codes-v1.png" download>حمّل الإنفوغراف PNG</a><a class="btn alt" href="assets/daqaiq-codes-v1.pdf" download>حمّل PDF</a></p>
+    <p class="note">© 2026 أ. محمد التهامي — منصة دقائق AI. اختيار الأكواد وشرحها وأمثلتها وتصميمها مرخّص بـ CC BY-NC-ND 4.0: يُسمح بالمشاركة كما هو مع ذكر المصدر، ويُمنع التعديل وإعادة الإنتاج والاستخدام التجاري.</p>
+  </div>
+</section>
+
 <!-- MAP -->
 <section class="blk" id="map">
   <div class="wrap">
@@ -1176,6 +1198,9 @@ function route(){
   if(h==='bag-launch'){window.scrollTo(0,0);return}
   const t=document.getElementById(h); if(t) requestAnimationFrame(()=>t.scrollIntoView());
 }
+const CODES=[["شرح المفهوم في صورة", "#1F7A5C", [["/infographic", "إنفوغراف", "يجمع المفهوم وأرقامه في لوحة واحدة", "/infographic دورة الماء"], ["/visual cheat sheet", "ورقة مراجعة بصرية", "ملخص قوانين أو قواعد للمراجعة السريعة", "/visual cheat sheet قوانين نيوتن"], ["/anatomy graphic", "لوحة تشريح", "أجزاء كائن أو جهاز بأسمائها", "/anatomy graphic القلب البشري"], ["/labelled diagram", "رسم مُسمّى", "رسم واضح بأسماء الأجزاء", "/labelled diagram الخلية النباتية"], ["/annotated", "رسم بشروح وأسهم", "ملاحظات وأسهم توضيحية فوق الرسم", "/annotated تضاريس المملكة"], ["/diagram", "مخطط مبسّط", "شرح بصري سريع لفكرة واحدة", "/diagram الدائرة الكهربائية البسيطة"], ["/classroom notes", "ملاحظات الحصة", "شرح مفهوم من الصفر بأسلوب كراسة الصف", "/classroom notes الكسور المتكافئة"], ["/handwritten notebook", "دفتر بخط اليد", "قواعد وصيغ وجداول للحفظ", "/handwritten notebook قوانين الحركة"], ["/whiteboard", "سبورة", "خطوات أو مسألة كأنها مكتوبة على السبورة", "/whiteboard حل معادلة من الدرجة الأولى"], ["/sticky notes", "ملاحظات لاصقة", "أفكار مترابطة لا تتبع فكرة رئيسة واحدة", "/sticky notes مصادر الطاقة"], ["/poster", "ملصق", "ملصق جداري للفصل", "/poster آداب المسجد"]]], ["تنظيم وربط", "#2F62D0", [["/mind map", "خريطة ذهنية", "موضوع يتفرع إلى فروع", "/mind map أقسام الكلمة"], ["/concept map", "خريطة مفاهيم", "مفاهيم تربطها أسهم عليها العلاقة", "/concept map السلسلة الغذائية"], ["/flowchart", "مخطط تدفّق", "خطوات فيها قرار أو تكرار", "/flowchart خطوات حل المسألة الكلامية"], ["/timeline graphic", "خط زمني", "أحداث مرتبة بتواريخها", "/timeline graphic الدولة السعودية الأولى"], ["/cycle diagram", "مخطط دوري", "عملية تتكرر في دورة", "/cycle diagram دورة حياة الفراشة"], ["/comparison", "مقارنة", "عنصران أو أكثر جنبًا إلى جنب", "/comparison الخلية النباتية والحيوانية"], ["/venn diagram", "شكل فن", "أوجه الشبه والاختلاف", "/venn diagram الثدييات والطيور"], ["/beforeafter", "قبل وبعد", "تغيّر حالة شيء بين زمنين", "/beforeafter التجوية والتعرية"], ["/architecture diagram", "مخطط بنية", "نظام بمكوّناته والروابط بينها", "/architecture diagram شبكة الإنترنت"]]], ["ما بداخل الأشياء", "#C2412D", [["/cutaway", "قطع جزئي", "يكشف الداخل مع بقاء الشكل الخارجي", "/cutaway البركان"], ["/crosssection", "مقطع عرضي", "شريحة تمر عبر الجسم", "/crosssection طبقات الأرض"], ["/explodedview", "منظر مُفكَّك", "أجزاء متباعدة لترى كيف تتركّب", "/explodedview المحرك الكهربائي"], ["/xray", "أشعة سينية", "الهيكل الداخلي ظاهرًا", "/xray هيكل السمكة"], ["/transparent", "جسم شفاف", "تُرى الأجزاء الداخلية عبره", "/transparent الجهاز الهضمي"], ["/partsdiagram", "أجزاء مفردة", "كل جزء وحده مع اسمه", "/partsdiagram المجهر الضوئي"], ["/blueprint", "مخطط هندسي أزرق", "تصميم ومواصفات بأسلوب المهندسين", "/blueprint الرافعة"], ["/schematic", "مخطط رمزي", "دوائر وأنظمة بالرموز", "/schematic التوصيل على التوالي والتوازي"], ["/isometric", "منظر متساوي القياس", "مجسمات ثلاثية الأبعاد دون تشويه", "/isometric المجسمات الهندسية"], ["/orthographic", "مساقط", "أمامي وجانبي وعلوي", "/orthographic المنشور الثلاثي"], ["/dimensioned", "بالأبعاد", "قياسات ومقياس رسم ظاهر", "/dimensioned المستطيل ومحيطه"], ["/macro", "تكبير شديد", "تفاصيل دقيقة جدًا", "/macro عين الذبابة"]]], ["خطوات وإجراءات", "#8A5A12", [["/howto", "كيف تفعل", "عملية تُعرض خطوة خطوة", "/howto قياس الكتلة بالميزان"], ["/instructional", "دليل مرئي", "تعليمات مرقمة بالصور", "/instructional تحضير شريحة مجهرية"], ["/assemblyguide", "دليل تركيب", "خطوات تركيب مرقمة", "/assemblyguide مجسم الخلية من الصلصال"], ["/repairguide", "دليل إصلاح", "خطوات فحص وإصلاح", "/repairguide دائرة كهربائية لا تعمل"]]], ["أسلوب الرسم", "#6B3FA0", [["/lineart", "رسم خطي", "صفحات تلوين وأوراق عمل للطباعة", "/lineart أجزاء الزهرة للتلوين"], ["/sketch", "رسم أوّلي", "فكرة بأسلوب قلم سريع", "/sketch تجربة الطفو"], ["/cartoon", "كرتوني", "شخصيات مرحة للصفوف الأولى", "/cartoon قطرة ماء تحكي رحلتها"], ["/comic", "قصة مصوّرة", "مشاهد متتابعة بحوار", "/comic حوار بين الشمس والقمر"], ["/watercolor", "ألوان مائية", "رسوم ناعمة للقصص", "/watercolor فصول السنة"], ["/vintage", "طابع قديم", "مظهر تاريخي للدروس التاريخية", "/vintage خريطة طريق البخور"], ["/patent", "رسم براءة اختراع", "اختراع بأسلوب الوثائق القديمة", "/patent الساعة المائية للجزري"], ["/minimalist", "بسيط", "شريحة نظيفة بلا تشويش", "/minimalist نظرية فيثاغورس"], ["/photorealistic", "واقعي", "صورة تشبه التصوير الحقيقي", "/photorealistic الصخور النارية والرسوبية"]]], ["تعديل صورة ترفعها", "#16233A", [["/restore", "ترميم", "إصلاح صورة قديمة أو باهتة", "/restore صورة تاريخية من الكتاب"], ["/upscale", "رفع الدقة", "تحسين صورة صفحة ملتقطة بالجوال", "/upscale صورة صفحة الدرس"], ["/remove", "حذف عنصر", "إزالة عنصر من الصورة", "/remove الأسماء من ورقة العمل"], ["/recolor", "تغيير الألوان", "ألوان أوضح أو مناسبة لعمى الألوان", "/recolor المخطط بألوان عالية التباين"], ["/background", "تغيير الخلفية", "خلفية بيضاء للطباعة", "/background بيضاء للرسم"]]]];
+$('codeList').innerHTML=CODES.map(([g,c,items])=>`<div class="cg" style="--c:${c}"><h3>${g}</h3><div class="cl">${items.map(([k,a,u])=>`<button type="button" data-code="${k} " title="${u}"><code>${k}</code><span>${a}</span><small>${u}</small></button>`).join('')}</div></div>`).join('');
+$('codeList').addEventListener('click',e=>{const b=e.target.closest('button[data-code]');if(b){copy(b.dataset.code).then(()=>toast('نُسخ '+b.dataset.code.trim()+' — أكمل بموضوع درسك'))}});
 addEventListener('hashchange',route); route();
 /* highlight the section in view in the bag nav */
 const navLinks=[...document.querySelectorAll('#bagnav a')];
